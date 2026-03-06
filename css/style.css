@@ -1211,6 +1211,30 @@ h1,h2,h3,h4 { font-family: 'Chakra Petch', sans-serif; line-height: 1.15; }
 .legal-content a  { color: var(--gold); }
 .legal-content a:hover { text-decoration: underline; }
 
+/* --- Blog preview section --- */
+.blog-preview-grid { display: grid; gap: 1.5rem; }
+@media (min-width: 768px) { .blog-preview-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1024px) { .blog-preview-grid { grid-template-columns: 1fr 1fr 1fr; } }
+.blog-card-preview {
+  display: flex; flex-direction: column;
+  background: #fff; border: 1px solid #e5e7eb; border-radius: var(--radius);
+  overflow: hidden; transition: all .3s; color: inherit;
+}
+.blog-card-preview:hover { border-color: var(--gold); box-shadow: 0 8px 32px rgba(0,0,0,.08); transform: translateY(-2px); }
+.blog-card-thumb {
+  height: 10rem; background: #173344;
+  display: flex; align-items: center; justify-content: center;
+}
+.blog-card-letter { font-family: 'Chakra Petch', sans-serif; font-size: 4rem; font-weight: 700; color: rgba(214,165,39,.3); }
+.blog-card-content { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.blog-card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .625rem; font-size: .8125rem; color: var(--gray-500); margin-bottom: .875rem; }
+.blog-tag { background: rgba(214,165,39,.1); color: var(--gold); padding: .2rem .6rem; border-radius: .25rem; font-weight: 500; }
+.blog-card-content h3 { font-family: 'Chakra Petch', sans-serif; font-size: 1.0625rem; color: #0a0f14; margin-bottom: .625rem; line-height: 1.35; transition: color .2s; }
+.blog-card-preview:hover h3 { color: var(--gold); }
+.blog-card-content p  { font-size: .875rem; color: var(--gray-600); line-height: 1.6; flex: 1; margin-bottom: 1rem; }
+.blog-link { display: inline-flex; align-items: center; gap: .375rem; color: var(--gold); font-size: .875rem; font-weight: 500; }
+.blog-date, .blog-read { display: flex; align-items: center; gap: .3rem; }
+
 /* --- Responsive overrides --- */
 @media (max-width: 767px) {
   .grid-2 { grid-template-columns: 1fr; }
