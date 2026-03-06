@@ -96,9 +96,14 @@ h1,h2,h3,h4 { font-family: 'Chakra Petch', sans-serif; line-height: 1.15; }
 .mb-16 { margin-bottom: 4rem; }
 
 /* ---------- Buttons ---------- */
-.btn {
+.btn,
+.btn-gold,
+.btn-dark,
+.btn-outline-gold,
+.btn-outline-white {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: .5rem;
   padding: .75rem 1.75rem;
   border-radius: var(--radius-sm);
@@ -109,6 +114,8 @@ h1,h2,h3,h4 { font-family: 'Chakra Petch', sans-serif; line-height: 1.15; }
   transition: all .2s;
   border: none;
   white-space: nowrap;
+  text-decoration: none;
+  line-height: 1;
 }
 .btn-gold {
   background: var(--gold);
@@ -141,10 +148,10 @@ h1,h2,h3,h4 { font-family: 'Chakra Petch', sans-serif; line-height: 1.15; }
 }
 .btn-outline-white:hover { background: rgba(255,255,255,.1); color: #fff; }
 .btn-lg { padding: 1rem 2.5rem; font-size: 1.0625rem; }
-.btn-full { width: 100%; justify-content: center; }
+.btn-full { width: 100%; }
 
-.btn svg, .btn .icon { width: 1.1rem; height: 1.1rem; transition: transform .2s; }
-.btn:hover .arrow { transform: translateX(3px); }
+.btn svg, .btn-gold svg, .btn-outline-gold svg, .btn-outline-white svg { width: 1.1rem; height: 1.1rem; transition: transform .2s; flex-shrink: 0; }
+.btn-gold:hover svg, .btn-outline-gold:hover svg { transform: translateX(3px); }
 
 /* ---------- Header / Nav ---------- */
 .site-header {
