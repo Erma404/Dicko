@@ -1235,6 +1235,82 @@ h1,h2,h3,h4 { font-family: 'Chakra Petch', sans-serif; line-height: 1.15; }
 .blog-link { display: inline-flex; align-items: center; gap: .375rem; color: var(--gold); font-size: .875rem; font-weight: 500; }
 .blog-date, .blog-read { display: flex; align-items: center; gap: .3rem; }
 
+/* --- Blog article pages --- */
+.article-hero {
+  background: #0a0f14;
+  padding: 6rem 0 3rem;
+}
+.article-hero .breadcrumb { display: flex; align-items: center; gap: .5rem; font-size: .8125rem; color: var(--gray-500); margin-bottom: 1.25rem; }
+.article-hero .breadcrumb a { color: var(--gray-500); transition: color .2s; }
+.article-hero .breadcrumb a:hover { color: var(--gold); }
+.article-hero .breadcrumb-sep { color: var(--gray-600); }
+.article-meta-top { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin-bottom: 1.25rem; font-size: .875rem; color: var(--gray-400); }
+.article-meta-top .blog-tag { font-size: .8125rem; }
+.article-date, .article-read { display: flex; align-items: center; gap: .3rem; }
+.article-hero h1 { font-family: 'Chakra Petch', sans-serif; font-size: clamp(1.6rem, 3.5vw, 2.5rem); color: #fff; line-height: 1.2; margin-bottom: 1.25rem; }
+.article-intro { font-size: 1.0625rem; color: var(--gray-300); line-height: 1.75; max-width: 68ch; }
+
+.article-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+@media (min-width: 1024px) { .article-layout { grid-template-columns: minmax(0,2.5fr) 340px; } }
+
+/* Article body */
+.article-body { color: #374151; line-height: 1.8; }
+.article-body h2 {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 1.375rem; color: #0a0f14;
+  margin: 2.25rem 0 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid rgba(214,165,39,.2);
+}
+.article-body h3 { font-family: 'Chakra Petch', sans-serif; font-size: 1.125rem; color: #0a0f14; margin: 1.5rem 0 .625rem; }
+.article-body p  { margin-bottom: 1rem; font-size: .9375rem; }
+.article-body ul, .article-body ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+.article-body ul li, .article-body ol li { margin-bottom: .5rem; font-size: .9375rem; }
+.article-body ul { list-style: disc; }
+.article-body ol { list-style: decimal; }
+.article-body strong { color: #0a0f14; font-weight: 600; }
+.article-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .9rem; }
+.article-body th { background: #0a0f14; color: var(--gold); padding: .6rem 1rem; text-align: left; font-family: 'Chakra Petch', sans-serif; font-size: .875rem; }
+.article-body td { padding: .6rem 1rem; border-bottom: 1px solid #e5e7eb; }
+.article-body tr:nth-child(even) td { background: #f9fafb; }
+
+/* Inline callout box */
+.article-cta-box {
+  background: #0a0f14;
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 2rem;
+  margin-top: 2.5rem;
+}
+.article-cta-box h3 { font-family: 'Chakra Petch', sans-serif; color: #fff; font-size: 1.25rem; margin-bottom: .75rem; }
+.article-cta-box p  { color: var(--gray-300); font-size: .9375rem; margin-bottom: 1.25rem; }
+.article-cta-btns { display: flex; flex-wrap: wrap; gap: .875rem; }
+
+/* Sidebar */
+.article-sidebar { display: flex; flex-direction: column; gap: 1.5rem; position: sticky; top: 6rem; }
+.sidebar-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+.sidebar-card h4 { font-family: 'Chakra Petch', sans-serif; font-size: 1rem; color: #0a0f14; margin-bottom: 1rem; padding-bottom: .625rem; border-bottom: 1px solid #e5e7eb; }
+.sidebar-links { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+.sidebar-links li a { font-size: .875rem; color: var(--gray-600); transition: color .2s; display: flex; align-items: flex-start; gap: .4rem; }
+.sidebar-links li a::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+.sidebar-links li a:hover { color: var(--gold); }
+.sidebar-phone { display: block; font-family: 'Chakra Petch', sans-serif; font-size: 1.375rem; color: var(--gold); font-weight: 700; margin-bottom: .5rem; }
+.sidebar-email { display: block; font-size: .875rem; color: var(--gray-600); margin-bottom: 1.25rem; }
+.sidebar-contact { background: #0a0f14; }
+.sidebar-contact h4 { color: #fff; border-color: rgba(255,255,255,.08); }
+.sidebar-contact .sidebar-email { color: var(--gray-400); }
+.sidebar-contact p { font-size: .8125rem; color: var(--gray-500); margin-top: .75rem; }
+
 /* --- Responsive overrides --- */
 @media (max-width: 767px) {
   .grid-2 { grid-template-columns: 1fr; }
