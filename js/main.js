@@ -29,13 +29,14 @@ if (hamburger && mobileNav) {
 }
 
 /* ---------- Active nav link ---------- */
-const currentPage = window.location.pathname.replace(/\/$/, '') || '/index.html';
+const currentPage = window.location.pathname.replace(/\/$/, '') || '/';
 document.querySelectorAll('.nav-links a, .mobile-nav a').forEach(link => {
   const href = link.getAttribute('href');
+  const cleanHref = href ? href.replace(/\/$/, '') : '';
   if (
-    href === currentPage ||
-    (href === 'index.html' && (currentPage === '/' || currentPage === '')) ||
-    (href !== 'index.html' && href !== '/' && currentPage.includes(href.replace('.html', '')))
+    cleanHref === currentPage ||
+    (cleanHref === '/' && (currentPage === '' || currentPage === '/')) ||
+    (cleanHref !== '/' && cleanHref && currentPage.startsWith(cleanHref))
   ) {
     link.classList.add('active');
   }
