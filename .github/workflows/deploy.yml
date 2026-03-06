@@ -1,9 +1,12 @@
-name: Deploy Dicko Chauffage to Namecheap via FTP
+name: Deploy Dicko Chauffage to GitHub Pages
 
 on:
   push:
     branches:
       - main
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
@@ -26,16 +29,9 @@ jobs:
       - name: Build React app
         run: npm run build
 
-      - name: Deploy dist/ via FTP to Namecheap
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          server: ${{ secrets.DICKO_FTP_SERVER }}
-          username: ${{ secrets.DICKO_FTP_USERNAME }}
-          password: ${{ secrets.DICKO_FTP_PASSWORD }}
-          local-dir: ./dist/
-          server-dir: /public_html/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.DS_Store
-          log-level: verbose
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          cname: dicko-chauffage.com
