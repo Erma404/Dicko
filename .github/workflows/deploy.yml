@@ -9,29 +9,18 @@ permissions:
   contents: write
 
 jobs:
-  build-and-deploy:
-    name: Build React app and deploy to dicko-chauffage.com
+  deploy:
+    name: Deploy static site to dicko-chauffage.com
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build React app
-        run: npm run build
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: .
           cname: dicko-chauffage.com
+          exclude_assets: '.github,src,node_modules,*.config.ts,*.config.js,package*.json,tsconfig*'
