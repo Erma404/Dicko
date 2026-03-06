@@ -151,15 +151,17 @@ h1,h2,h3,h4 { font-family: 'Chakra Petch', sans-serif; line-height: 1.15; }
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  transition: all .4s;
+  transition: padding .3s, box-shadow .3s;
   padding: 1.25rem 0;
-}
-.site-header.scrolled {
-  background: rgba(10,15,20,.95);
+  background: rgba(10,15,20,.97);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(214,165,39,.15);
+  border-bottom: 1px solid rgba(214,165,39,.12);
+}
+.site-header.scrolled {
   padding: .75rem 0;
+  border-bottom-color: rgba(214,165,39,.2);
+  box-shadow: 0 4px 24px rgba(0,0,0,.4);
 }
 .nav-inner {
   display: flex;
