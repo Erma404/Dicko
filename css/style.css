@@ -1458,6 +1458,7 @@ h1,h2,h3,h4 { font-family: 'Chakra Petch', sans-serif; line-height: 1.15; }
 }
 .article-cta-box h3 { font-family: 'Chakra Petch', sans-serif; color: #fff; font-size: 1.25rem; margin-bottom: .75rem; }
 .article-cta-box p  { color: #d1d5db; font-size: .9375rem; margin-bottom: 1.25rem; }
+.article-cta-box strong { color: #fff; font-weight: 600; }
 .article-cta-btns { display: flex; flex-wrap: wrap; gap: .875rem; }
 
 /* Sidebar */
