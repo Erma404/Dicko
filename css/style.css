@@ -126,9 +126,9 @@ h1,h2,h3,h4 { font-family: 'Chakra Petch', sans-serif; line-height: 1.15; }
 }
 .btn-dark:hover { background: #1a1f24; }
 .btn-outline-gold {
-  background: transparent;
+  background: #0a0f14;
   color: var(--gold);
-  border: 1px solid var(--gold);
+  border: 1.5px solid var(--gold);
 }
 .btn-outline-gold:hover {
   background: var(--gold);
