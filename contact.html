@@ -105,7 +105,11 @@
     <!-- Right - form -->
     <div class="contact-form-box fade-up">
       <h3 class="heading-dark mb-2">Demander un devis</h3>
-      <form class="contact-form" action="https://wa.me/33615035300" id="contact-form">
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+        <input type="hidden" name="access_key" value="d2f0287a-5f39-4c65-bbc1-d707442d5393">
+        <input type="hidden" name="subject" value="Nouveau message depuis dicko-chauffage.com">
+        <input type="hidden" name="from_name" value="Dicko BTP Site Web">
+        <input type="hidden" name="redirect" value="https://dicko-chauffage.com/contact">
         <div class="form-row-light">
           <div class="form-group-light">
             <label for="company">Nom de l'entreprise *</label>
