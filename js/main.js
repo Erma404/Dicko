@@ -103,6 +103,7 @@ if (fadeEls.length) {
       <div class="dv-body" id="dv-body"></div>
       <div class="dv-footer" id="dv-footer"></div>
     </div>`;
+  overlay.style.display = 'none';
   document.body.appendChild(overlay);
 
   /* ---- Mobile sticky bar ---- */
@@ -124,13 +125,15 @@ if (fadeEls.length) {
 
   function openModal() {
     s = freshState();
-    overlay.classList.add('open');
+    overlay.style.display = 'flex';
+    requestAnimationFrame(() => overlay.classList.add('open'));
     document.body.style.overflow = 'hidden';
     render();
   }
   function closeModal() {
     overlay.classList.remove('open');
     document.body.style.overflow = '';
+    setTimeout(() => { overlay.style.display = 'none'; }, 260);
   }
 
   /* ---- Render current step ---- */

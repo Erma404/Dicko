@@ -697,15 +697,15 @@ h1,h2,h3,h4 { font-family: 'Chakra Petch', sans-serif; line-height: 1.15; }
 
 /* ============ Devis Modal v2 ============ */
 .dv-overlay {
-  position: fixed; inset: 0; z-index: 200;
+  position: fixed; inset: 0; z-index: 9999;
   background: rgba(0,0,0,.65);
   backdrop-filter: blur(4px);
-  display: flex; align-items: center; justify-content: center;
+  display: none; align-items: center; justify-content: center;
   padding: 1rem;
   opacity: 0; pointer-events: none;
   transition: opacity .25s;
 }
-.dv-overlay.open { opacity: 1; pointer-events: all; }
+.dv-overlay.open { display: flex; opacity: 1; pointer-events: all; }
 
 .dv-modal {
   background: #fff;
