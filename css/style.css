@@ -1299,6 +1299,9 @@ h1,h2,h3,h4 { font-family: 'Chakra Petch', sans-serif; line-height: 1.15; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 1.25rem; }
 .footer-links a { color: var(--gray-500); font-size: .875rem; transition: color .2s; }
 .footer-links a:hover { color: var(--gold); }
+.footer-credit { font-size: .8125rem; color: var(--gray-500); }
+.footer-credit a { color: var(--gold); text-decoration: none; transition: opacity .2s; }
+.footer-credit a:hover { opacity: .75; }
 
 /* --- Legal page content --- */
 .legal-content h2 { font-family: 'Chakra Petch', sans-serif; font-size: 1.25rem; color: #0a0f14; margin-top: 2rem; margin-bottom: .75rem; }
