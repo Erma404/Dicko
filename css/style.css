@@ -160,6 +160,7 @@ h1,h2,h3,h4 { font-family: 'Chakra Petch', sans-serif; line-height: 1.15; }
   z-index: 100;
   transition: padding .3s, box-shadow .3s;
   padding: 1.25rem 0;
+  padding-top: max(1.25rem, env(safe-area-inset-top));
   background: rgba(10,15,20,.97);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -167,8 +168,17 @@ h1,h2,h3,h4 { font-family: 'Chakra Petch', sans-serif; line-height: 1.15; }
 }
 .site-header.scrolled {
   padding: .75rem 0;
+  padding-top: max(.75rem, env(safe-area-inset-top));
   border-bottom-color: rgba(214,165,39,.2);
   box-shadow: 0 4px 24px rgba(0,0,0,.4);
+}
+@media (max-width: 767px) {
+  .nav-inner > .btn-gold {
+    font-size: .8rem;
+    padding: .5rem .875rem;
+    gap: .375rem;
+  }
+  .nav-inner > .btn-gold svg { display: none; }
 }
 .nav-inner {
   display: flex;
@@ -867,19 +877,8 @@ h1,h2,h3,h4 { font-family: 'Chakra Petch', sans-serif; line-height: 1.15; }
 }
 .dv-shake { animation: dv-shake .35s ease; }
 
-/* Mobile sticky CTA */
-.mobile-sticky-devis {
-  display: none;
-  position: fixed; bottom: 0; left: 0; right: 0;
-  z-index: 90;
-  background: #0a0f14;
-  border-top: 1px solid rgba(214,165,39,.2);
-  padding: .875rem 1rem;
-}
-@media (max-width: 767px) {
-  .mobile-sticky-devis { display: flex; }
-  body { padding-bottom: 4.5rem; }
-}
+/* Mobile sticky CTA — removed */
+.mobile-sticky-devis { display: none !important; }
 
 /* ---------- Blog cards ---------- */
 .blog-card { border-radius: var(--radius); overflow: hidden; background: #fff; border: 1px solid #e5e7eb; transition: all .3s; }
