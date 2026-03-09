@@ -329,6 +329,7 @@ if (fadeEls.length) {
 
   /* ---- Send ---- */
   function sendDevis() {
+    // 1. WhatsApp
     const msg = encodeURIComponent(
       `Bonjour DICKO BTP 👋\n\nNouvelle demande de devis :\n\n` +
       `📋 Type: ${s.type}\n📐 Surface: ${s.surface}\n🚪 Pièces: ${s.pieces}\n` +
@@ -338,12 +339,27 @@ if (fadeEls.length) {
       `📝 Description: ${s.description || 'Aucune description'}`
     );
     window.open(`https://wa.me/${PHONE}?text=${msg}`, '_blank');
-    const subj = encodeURIComponent(`Devis ${s.type} — ${s.localisation} — ${s.nom}`);
-    const body = encodeURIComponent(
-      `Type: ${s.type}\nSurface: ${s.surface}\nPièces: ${s.pieces}\nLocalisation: ${s.localisation}\nUrgence: ${s.urgence}\n\n` +
-      `Nom: ${s.nom}\nEntreprise: ${s.entreprise || 'N/A'}\nEmail: ${s.email}\nTél: ${s.telephone}\n\nDescription: ${s.description || 'Aucune'}`
-    );
-    setTimeout(() => { window.location.href = `mailto:${EMAIL}?subject=${subj}&body=${body}`; }, 800);
+
+    // 2. Email via Web3Forms
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        access_key: 'd2f0287a-5f39-4c65-bbc1-d707442d5393',
+        subject: `Devis ${s.type} — ${s.localisation} — ${s.nom}`,
+        from_name: 'Dicko BTP Site Web',
+        name: s.nom,
+        email: s.email,
+        phone: s.telephone,
+        entreprise: s.entreprise || 'N/A',
+        type_travaux: s.type,
+        surface: s.surface,
+        pieces: s.pieces,
+        localisation: s.localisation,
+        urgence: s.urgence,
+        description: s.description || 'Aucune'
+      })
+    });
   }
 
   function esc(str) { return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
