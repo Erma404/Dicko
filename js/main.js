@@ -103,8 +103,7 @@ if (fadeEls.length) {
       <div class="dv-body" id="dv-body"></div>
       <div class="dv-footer" id="dv-footer"></div>
     </div>`;
-  overlay.style.display = 'none';
-  document.body.appendChild(overlay);
+  /* overlay is NOT in the DOM until openModal() is called */
 
   /* ---- Mobile sticky bar ---- */
   const stickyBar = document.createElement('div');
@@ -119,13 +118,12 @@ if (fadeEls.length) {
   document.addEventListener('click', e => {
     if (e.target.closest('[data-open-devis]') || e.target.closest('#dv-sticky')) openModal();
   });
-  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-  document.getElementById('dv-close').addEventListener('click', closeModal);
+  overlay.addEventListener('click', e => { if (e.target === overlay || e.target.closest('#dv-close')) closeModal(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal(); });
 
   function openModal() {
     s = freshState();
-    overlay.style.display = 'flex';
+    if (!overlay.isConnected) document.body.appendChild(overlay);
     requestAnimationFrame(() => overlay.classList.add('open'));
     document.body.style.overflow = 'hidden';
     render();
@@ -133,7 +131,7 @@ if (fadeEls.length) {
   function closeModal() {
     overlay.classList.remove('open');
     document.body.style.overflow = '';
-    setTimeout(() => { overlay.style.display = 'none'; }, 260);
+    setTimeout(() => { overlay.remove(); }, 260);
   }
 
   /* ---- Render current step ---- */
