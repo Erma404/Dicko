@@ -464,31 +464,35 @@ function Index() {
       </section>
 
       {/* POURQUOI NOUS */}
-      <section className="relative border-b border-border py-24 lg:py-32">
-        <div className="blueprint pointer-events-none absolute inset-0 opacity-40" />
-        <div className="relative mx-auto max-w-[1400px] px-5 md:px-10">
-          <SectionLabel index="03">Pourquoi nous choisir</SectionLabel>
-          <div className="mt-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
-            <h2 className="text-3xl sm:text-5xl">Pourquoi choisir DICKO ?</h2>
-            <p className="text-sm text-muted-foreground">
-              Votre partenaire CVC de confiance en Île-de-France
-            </p>
-          </div>
+      <section className="px-3 py-6 md:px-5">
+        <div className="dicko-pattern relative overflow-hidden rounded-[2rem] bg-card px-6 py-20 md:px-12 lg:py-28">
+          <div className="relative mx-auto max-w-[1400px]">
+            <SectionLabel index="03">Pourquoi nous choisir</SectionLabel>
+            <div className="mt-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
+              <h2 className="text-3xl sm:text-5xl">Pourquoi choisir DICKO ?</h2>
+              <p className="text-sm text-muted-foreground">
+                Des équipes fidèles, des chefs de chantier qui connaissent vos bâtiments
+              </p>
+            </div>
 
-          <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {whyUs.map((w, i) => (
-              <div key={w.title} className="panel p-8">
-                <div className="flex items-start justify-between">
-                  <w.icon className="h-6 w-6 text-gold" strokeWidth={1.4} />
-                  <span className="index-num text-xs">0{i + 1}</span>
+            <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {whyUs.map((w, i) => (
+                <div key={w.title} className="panel rounded-[1.5rem] p-8">
+                  <div className="flex items-start justify-between">
+                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gold/15 text-gold">
+                      <w.icon className="h-5 w-5" strokeWidth={1.5} />
+                    </span>
+                    <span className="index-num text-xs">0{i + 1}</span>
+                  </div>
+                  <h3 className="mt-8 text-lg leading-snug">{w.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{w.desc}</p>
                 </div>
-                <h3 className="mt-8 text-lg leading-snug">{w.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{w.desc}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
+
 
       {/* RÉALISATIONS */}
       <section id="realisations" className="border-b border-border py-24 lg:py-32">
