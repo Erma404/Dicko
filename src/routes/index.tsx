@@ -296,48 +296,31 @@ function Index() {
                 <a href="#contact" className="btn-gold">
                   Demander un devis <ArrowUpRight className="h-4 w-4" />
                 </a>
-                <a href="#realisations" className="btn-ghost">
-                  Nos réalisations
-                </a>
               </div>
             </div>
           </div>
         </div>
-
-        {/* Marquee */}
-        <div className="mt-3 overflow-hidden rounded-full border border-border bg-secondary/60 py-3.5">
-          <div className="marquee-track">
-            {[0, 1].map((dup) => (
-              <div key={dup} className="flex shrink-0 items-center">
-                {departements.concat(departements).map((d, i) => (
-                  <span
-                    key={`${dup}-${i}`}
-                    className="flex items-center gap-6 px-6 font-display text-sm tracking-[0.18em] whitespace-nowrap text-muted-foreground uppercase"
-                  >
-                    {d}
-                    <span className="h-1 w-1 rounded-full bg-gold" />
-                  </span>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
-      {/* STATS */}
+      {/* STATS / RÉASSURANCE */}
       <section className="px-3 pt-3 md:px-5">
-        <div className="band-ink dicko-pattern relative overflow-hidden rounded-[2rem] px-6 py-12 md:px-12 lg:py-16">
+        <div className="band-cream relative overflow-hidden rounded-[2rem] px-6 py-12 md:px-12 lg:py-16">
           <div className="mx-auto grid max-w-[1400px] grid-cols-2 gap-y-10 lg:grid-cols-4">
-            {stats.map((s) => (
-              <div key={s.label} className="px-2">
-                <div className="font-display text-4xl leading-none font-bold text-gold sm:text-5xl lg:text-6xl">
-                  {s.value}
+            {stats.map((s) => {
+              const numeric = s.value.replace(/[^0-9]/g, "");
+              const suffix = s.value.replace(/[0-9]/g, "");
+              return (
+                <div key={s.label} className="px-2 text-center">
+                  <div className="font-display text-4xl leading-none font-bold text-foreground sm:text-5xl lg:text-6xl">
+                    {numeric}
+                    <span className="text-gold">{suffix}</span>
+                  </div>
+                  <div className="mt-3 text-xs tracking-[0.16em] text-muted-foreground uppercase">
+                    {s.label}
+                  </div>
                 </div>
-                <div className="mt-3 text-xs tracking-[0.16em] text-muted-foreground uppercase">
-                  {s.label}
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
