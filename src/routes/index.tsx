@@ -268,7 +268,7 @@ function Index() {
 
       {/* HERO */}
       <section id="top" className="px-3 pt-20 md:px-5">
-        <div className="dicko-pattern-gold relative isolate overflow-hidden rounded-[2rem] bg-card md:rounded-[2.5rem]">
+        <div className="band-ink dicko-pattern-gold relative isolate overflow-hidden rounded-[2rem] md:rounded-[2.5rem]">
           <img
             src={heroPortrait}
             alt="Technicien plombier chauffagiste DICKO en chaufferie"
@@ -325,7 +325,7 @@ function Index() {
 
       {/* STATS */}
       <section className="px-3 pt-3 md:px-5">
-        <div className="dicko-pattern relative overflow-hidden rounded-[2rem] bg-card px-6 py-12 md:px-12 lg:py-16">
+        <div className="band-ink dicko-pattern relative overflow-hidden rounded-[2rem] px-6 py-12 md:px-12 lg:py-16">
           <div className="mx-auto grid max-w-[1400px] grid-cols-2 gap-y-10 lg:grid-cols-4">
             {stats.map((s) => (
               <div key={s.label} className="px-2">
@@ -474,7 +474,7 @@ function Index() {
 
       {/* POURQUOI NOUS */}
       <section className="px-3 py-6 md:px-5">
-        <div className="dicko-pattern relative overflow-hidden rounded-[2rem] bg-card px-6 py-20 md:px-12 lg:py-28">
+        <div className="band-ink dicko-pattern relative overflow-hidden rounded-[2rem] px-6 py-20 md:px-12 lg:py-28">
           <div className="relative mx-auto max-w-[1400px]">
             <SectionLabel index="03">Pourquoi nous choisir</SectionLabel>
             <div className="mt-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
@@ -625,7 +625,7 @@ function Index() {
 
       {/* CTA */}
       <section id="contact" className="px-3 py-6 md:px-5">
-        <div className="dicko-pattern-gold relative isolate overflow-hidden rounded-[2rem] bg-card md:rounded-[2.5rem]">
+        <div className="band-ink dicko-pattern-gold relative isolate overflow-hidden rounded-[2rem] md:rounded-[2.5rem]">
           <img
             src={aboutImg}
             alt="Équipe DICKO sur chantier en Île-de-France"
