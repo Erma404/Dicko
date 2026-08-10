@@ -85,13 +85,50 @@ export function CookieConsentHead() {
 #stcm-wrapper {
   --boxShadow: -5px 5px 10px 0px #00000012, 0px 0px 50px 0px #0000001a;
   --fontFamily: Helvetica Neue, Segoe UI, Arial, sans-serif;
-  --primaryColor: #DDC446;
+  /* #D99F36 : le gold exact du site (--gold en oklch), pas l'approximation
+     jaune d'origine du snippet. */
+  --primaryColor: #D99F36;
   --backgroundColor: #152e3d;
   --textColor: #fafafa;
   --backdropBackgroundColor: #00000033;
   --backdropBackgroundBlur: 0px;
   --iconColor: #152E3D;
-  --iconBackgroundColor: #DDC446;
+  --iconBackgroundColor: #D99F36;
+}
+
+/* Modale "Préférences" plus compacte et subtile (480px au lieu des 800px
+   par défaut de la librairie), avec un padding/interlignage resserrés. */
+#stcm-modal {
+  width: 480px;
+  padding: 24px;
+}
+#stcm-modal header {
+  margin-bottom: 16px;
+}
+#stcm-modal h1 {
+  font-size: 19px;
+}
+#stcm-modal section {
+  margin-top: 20px;
+}
+#stcm-modal p {
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 12px;
+}
+#stcm-modal fieldset {
+  margin-bottom: 20px;
+}
+#stcm-modal legend {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+#stcm-modal .stcm-consent-row {
+  gap: 16px;
+}
+#stcm-modal footer {
+  flex-direction: row;
+  margin-top: 20px;
 }
       `}</style>
       <script
