@@ -114,16 +114,6 @@ const services = [
   },
 ];
 
-const departements = [
-  "Paris",
-  "Hauts-de-Seine",
-  "Seine-Saint-Denis",
-  "Val-de-Marne",
-  "Yvelines",
-  "Essonne",
-  "Val-d'Oise",
-  "Seine-et-Marne",
-];
 
 const whyUs = [
   {
@@ -400,17 +390,7 @@ function Index() {
           </div>
 
 
-          <div className="mt-14 flex flex-wrap items-center gap-x-4 gap-y-3">
-            <span className="eyebrow">Nous intervenons dans toute l'Île-de-France :</span>
-            {departements.map((d) => (
-              <span
-                key={d}
-                className="rounded-full border border-border px-4 py-1.5 text-xs text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
-              >
-                {d}
-              </span>
-            ))}
-          </div>
+
         </div>
       </section>
 
