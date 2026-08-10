@@ -615,22 +615,33 @@ function Index() {
       </section>
 
       {/* CTA */}
-      <section id="contact" className="relative overflow-hidden py-28 lg:py-36">
-        <div className="blueprint absolute inset-0 opacity-70" />
-        <div className="absolute inset-x-0 top-0 hairline-y" />
-        <div className="relative mx-auto max-w-[1400px] px-5 text-center md:px-10">
-          <h2 className="mx-auto max-w-3xl text-3xl leading-tight sm:text-5xl lg:text-6xl">
-            Prêt à démarrer votre projet <span className="text-gold">CVC</span> ?
-          </h2>
-          <p className="mx-auto mt-6 max-w-2xl leading-relaxed text-muted-foreground">
-            Contactez-nous pour obtenir un devis personnalisé pour vos travaux de plomberie,
-            chauffage ou VMC en Île-de-France.
-          </p>
-          <a href="#contact" className="btn-gold mt-10">
-            Nous contacter <ArrowUpRight className="h-4 w-4" />
-          </a>
+      <section id="contact" className="px-3 py-6 md:px-5">
+        <div className="dicko-pattern-gold relative isolate overflow-hidden rounded-[2rem] bg-card md:rounded-[2.5rem]">
+          <img
+            src={aboutImg}
+            alt="Équipe DICKO sur chantier en Île-de-France"
+            width={1200}
+            height={1408}
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover object-[60%_30%] opacity-35"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/50" />
+          <div className="relative mx-auto max-w-[1400px] px-6 py-24 md:px-12 lg:py-32">
+            <h2 className="max-w-3xl text-3xl leading-tight sm:text-5xl lg:text-6xl">
+              Parlons de votre chantier avec un{" "}
+              <span className="text-gold">homme de métier</span>
+            </h2>
+            <p className="mt-6 max-w-2xl leading-relaxed text-muted-foreground">
+              Un chef de chantier DICKO vous rappelle, visite le site et chiffre vos travaux de
+              plomberie, chauffage ou VMC en Île-de-France.
+            </p>
+            <a href="#contact" className="btn-gold mt-10">
+              Nous contacter <ArrowUpRight className="h-4 w-4" />
+            </a>
+          </div>
         </div>
       </section>
+
 
       {/* FOOTER */}
       <footer className="border-t border-border py-10">
