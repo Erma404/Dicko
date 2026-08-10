@@ -265,7 +265,7 @@ function Index() {
             alt="Techniciens CVC au travail"
             width={1600}
             height={1104}
-            className="h-full w-full object-cover opacity-45"
+            className="h-full w-full object-cover opacity-40"
           />
         </div>
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/70 via-background/85 to-background" />
@@ -273,7 +273,7 @@ function Index() {
 
         <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-14 px-5 pt-20 pb-16 md:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:pt-32 lg:pb-24">
           <div className="rise">
-            <div className="mb-8 inline-flex items-center gap-3 border border-gold/40 px-4 py-2">
+            <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-border px-4 py-2">
               <span className="h-1.5 w-1.5 animate-pulse bg-gold" />
               <span className="eyebrow">Entreprise B2B Île-de-France</span>
             </div>
@@ -357,7 +357,7 @@ function Index() {
       </section>
 
       {/* STATS */}
-      <section className="border-b border-border">
+      <section className="band-cream pt-20 lg:pt-28">
         <div className="mx-auto grid max-w-[1400px] grid-cols-2 px-5 md:px-10 lg:grid-cols-4">
           {stats.map((s, i) => (
             <div
@@ -376,7 +376,7 @@ function Index() {
       </section>
 
       {/* À PROPOS */}
-      <section id="apropos" className="relative border-b border-border py-24 lg:py-32">
+      <section id="apropos" className="band-cream relative py-24 lg:py-32">
         <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-16 px-5 md:px-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="relative">
             <img
@@ -385,9 +385,9 @@ function Index() {
               width={1200}
               height={1504}
               loading="lazy"
-              className="h-[420px] w-full object-cover grayscale-[35%] lg:h-[620px]"
+              className="h-[420px] w-full rounded-2xl object-cover lg:h-[620px]"
             />
-            <div className="absolute -right-4 bottom-8 bg-gold px-8 py-6 text-primary-foreground lg:-right-10">
+            <div className="absolute -right-4 bottom-8 rounded-2xl bg-gold px-8 py-6 text-primary-foreground lg:-right-10">
               <div className="font-display text-5xl leading-none font-bold">15+</div>
               <div className="mt-1 text-[11px] font-semibold tracking-[0.18em] uppercase">
                 Ans d'expérience
@@ -412,7 +412,7 @@ function Index() {
               la réalisation de leurs projets techniques.
             </p>
 
-            <div className="mt-12 grid grid-cols-1 gap-px bg-border sm:grid-cols-2">
+            <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2">
               {[
                 [Building2, "Bâtiments tertiaires", "Bureaux, commerces, entrepôts"],
                 [Layers, "Logements collectifs", "Résidences, immeubles"],
@@ -421,7 +421,7 @@ function Index() {
               ].map(([Icon, title, desc]) => {
                 const I = Icon as typeof Building2;
                 return (
-                  <div key={title as string} className="bg-background p-6">
+                  <div key={title as string} className="rounded-2xl bg-card p-6">
                     <I className="h-5 w-5 text-gold" strokeWidth={1.5} />
                     <h3 className="mt-4 text-base">{title as string}</h3>
                     <p className="mt-1 text-sm text-muted-foreground">{desc as string}</p>
@@ -476,14 +476,14 @@ function Index() {
                     </li>
                   ))}
                 </ul>
-                <div className="overflow-hidden">
+                <div className="overflow-hidden rounded-2xl">
                   <img
                     src={s.img}
                     alt={s.alt}
                     width={1000}
                     height={1200}
                     loading="lazy"
-                    className="h-44 w-full object-cover grayscale-[45%] transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 lg:h-36"
+                    className="h-44 w-full object-cover transition-transform duration-700 group-hover:scale-105 lg:h-36"
                   />
                 </div>
               </article>
@@ -496,7 +496,7 @@ function Index() {
             {departements.map((d) => (
               <span
                 key={d}
-                className="border border-border px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:border-gold hover:text-gold"
+                className="rounded-full border border-border px-4 py-1.5 text-xs text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
               >
                 {d}
               </span>
@@ -517,9 +517,9 @@ function Index() {
             </p>
           </div>
 
-          <div className="mt-14 grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {whyUs.map((w, i) => (
-              <div key={w.title} className="panel !border-0 bg-background p-8">
+              <div key={w.title} className="panel p-8">
                 <div className="flex items-start justify-between">
                   <w.icon className="h-6 w-6 text-gold" strokeWidth={1.4} />
                   <span className="index-num text-xs">0{i + 1}</span>
@@ -549,7 +549,7 @@ function Index() {
           <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-2">
             {projects.map((p) => (
               <article key={p.title} className="group">
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden rounded-3xl">
                   <img
                     src={p.img}
                     alt={p.title}
@@ -558,7 +558,7 @@ function Index() {
                     loading="lazy"
                     className="h-72 w-full object-cover transition-transform duration-[900ms] group-hover:scale-[1.04] lg:h-[420px]"
                   />
-                  <span className="absolute top-5 left-5 bg-gold px-3 py-1.5 font-display text-[11px] font-bold tracking-[0.16em] text-primary-foreground uppercase">
+                  <span className="absolute top-5 left-5 rounded-full bg-gold px-4 py-1.5 font-display text-[11px] font-bold tracking-[0.12em] text-primary-foreground uppercase">
                     {p.tag}
                   </span>
                 </div>
@@ -579,7 +579,7 @@ function Index() {
       </section>
 
       {/* BLOG */}
-      <section id="blog" className="border-b border-border py-24 lg:py-32">
+      <section id="blog" className="band-cream py-24 lg:py-32">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
           <SectionLabel index="05">Blog</SectionLabel>
           <div className="mt-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
@@ -592,9 +592,9 @@ function Index() {
             </p>
           </div>
 
-          <div className="mt-14 grid grid-cols-1 gap-px bg-border md:grid-cols-3">
+          <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3">
             {posts.map((p) => (
-              <article key={p.title} className="group flex flex-col bg-background p-8">
+              <article key={p.title} className="group flex flex-col rounded-2xl bg-card p-8">
                 <div className="flex items-center gap-3 text-[11px] tracking-[0.16em] uppercase">
                   <span className="text-gold">{p.cat}</span>
                   <span className="text-muted-foreground">{p.date}</span>
