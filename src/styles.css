@@ -296,7 +296,7 @@
   }
 }
 
-/* Motif DICKO — colonnes techniques arrondies, en fond des blocs sombres */
+/* Motif DICKO — le symbole du logo répété en trame de fond */
 @utility dicko-pattern {
   position: relative;
   isolation: isolate;
@@ -306,13 +306,20 @@
     position: absolute;
     inset: 0;
     z-index: -1;
-    background-image: repeating-linear-gradient(
-      90deg,
-      transparent 0 38px,
-      color-mix(in oklab, var(--foreground) 4%, transparent) 44px 78px
-    );
-    -webkit-mask-image: linear-gradient(to bottom, transparent, black 22%, black 78%, transparent);
-    mask-image: linear-gradient(to bottom, transparent, black 22%, black 78%, transparent);
+    background-color: color-mix(in oklab, var(--foreground) 9%, transparent);
+    -webkit-mask-image:
+      url("/dicko-mark.svg"), linear-gradient(115deg, transparent 30%, black 75%);
+    mask-image: url("/dicko-mark.svg"), linear-gradient(115deg, transparent 30%, black 75%);
+    -webkit-mask-repeat: repeat, no-repeat;
+    mask-repeat: repeat, no-repeat;
+    -webkit-mask-size:
+      104px 104px,
+      100% 100%;
+    mask-size:
+      104px 104px,
+      100% 100%;
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
     border-radius: inherit;
     pointer-events: none;
   }
@@ -327,14 +334,47 @@
     position: absolute;
     inset: 0;
     z-index: -1;
-    background-image: repeating-linear-gradient(
-      90deg,
-      transparent 0 38px,
-      color-mix(in oklab, var(--gold) 14%, transparent) 38px 68px
-    );
-    -webkit-mask-image: radial-gradient(120% 90% at 100% 0%, black, transparent 70%);
-    mask-image: radial-gradient(120% 90% at 100% 0%, black, transparent 70%);
+    background-color: color-mix(in oklab, var(--gold) 30%, transparent);
+    -webkit-mask-image:
+      url("/dicko-mark.svg"), radial-gradient(110% 95% at 100% 0%, black, transparent 68%);
+    mask-image:
+      url("/dicko-mark.svg"), radial-gradient(110% 95% at 100% 0%, black, transparent 68%);
+    -webkit-mask-repeat: repeat, no-repeat;
+    mask-repeat: repeat, no-repeat;
+    -webkit-mask-size:
+      128px 128px,
+      100% 100%;
+    mask-size:
+      128px 128px,
+      100% 100%;
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
     border-radius: inherit;
     pointer-events: none;
   }
 }
+
+/* Grande signature logo, en filigrane */
+@utility dicko-watermark {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -8%;
+    right: -6%;
+    width: min(52%, 620px);
+    aspect-ratio: 1;
+    z-index: -1;
+    background-color: color-mix(in oklab, var(--foreground) 7%, transparent);
+    -webkit-mask-image: url("/dicko-mark.svg");
+    mask-image: url("/dicko-mark.svg");
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    pointer-events: none;
+  }
+}
+
