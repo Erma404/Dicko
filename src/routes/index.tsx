@@ -258,86 +258,44 @@ function Index() {
       </header>
 
       {/* HERO */}
-      <section id="top" className="relative isolate overflow-hidden pt-16">
-        <div className="absolute inset-0 -z-20">
+      <section id="top" className="px-3 pt-20 md:px-5">
+        <div className="dicko-pattern-gold relative isolate overflow-hidden rounded-[2rem] bg-card md:rounded-[2.5rem]">
           <img
-            src={heroImg}
-            alt="Techniciens CVC au travail"
-            width={1600}
-            height={1104}
-            className="h-full w-full object-cover opacity-40"
+            src={heroPortrait}
+            alt="Technicien plombier chauffagiste DICKO en chaufferie"
+            width={1408}
+            height={1600}
+            className="absolute inset-0 h-full w-full object-cover object-[70%_25%]"
           />
-        </div>
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/70 via-background/85 to-background" />
-        <div className="blueprint absolute inset-0 -z-10 opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-transparent to-background/40" />
 
-        <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-14 px-5 pt-20 pb-16 md:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:pt-32 lg:pb-24">
-          <div className="rise">
-            <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-border px-4 py-2">
-              <span className="h-1.5 w-1.5 animate-pulse bg-gold" />
-              <span className="eyebrow">Entreprise B2B Île-de-France</span>
+          <div className="relative mx-auto flex min-h-[560px] max-w-[1400px] flex-col justify-end px-6 py-14 md:px-12 lg:min-h-[720px] lg:py-20">
+            <div className="rise max-w-3xl">
+              <h1 className="text-[2.4rem] leading-[0.98] font-bold tracking-tight sm:text-6xl lg:text-[4.6rem]">
+                Plombier chauffagiste
+                <br />
+                <span className="text-gold">au service des pros</span>
+              </h1>
+              <p className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                Depuis 15 ans, nos équipes installent la plomberie, le chauffage collectif et la VMC
+                des bâtiments d'Île-de-France. Des femmes et des hommes de terrain, pas des
+                promesses.
+              </p>
+              <div className="mt-9 flex flex-wrap items-center gap-4">
+                <a href="#contact" className="btn-gold">
+                  Demander un devis <ArrowUpRight className="h-4 w-4" />
+                </a>
+                <a href="#realisations" className="btn-ghost">
+                  Nos réalisations
+                </a>
+              </div>
             </div>
-            <h1 className="max-w-3xl text-[2.6rem] leading-[0.98] font-bold tracking-tight sm:text-6xl lg:text-[5rem]">
-              Plombier
-              <br />
-              Chauffagiste{" "}
-              <span className="text-gold">
-                Paris
-                <br />& Île-de-France
-              </span>
-            </h1>
-            <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              Votre partenaire technique en installation CVC pour bâtiments professionnels en
-              Île-de-France.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a href="#contact" className="btn-gold">
-                Demander un devis <ArrowUpRight className="h-4 w-4" />
-              </a>
-              <a href="#realisations" className="btn-ghost">
-                Nos réalisations
-              </a>
-            </div>
-            <div className="mt-12 flex flex-wrap gap-x-10 gap-y-3 text-sm text-muted-foreground">
-              <span className="flex items-center gap-2">
-                <span className="h-px w-6 bg-gold" />
-                15+ ans d'expérience
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="h-px w-6 bg-gold" />
-                200+ projets réalisés
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="h-px w-6 bg-gold" />
-                Intervention IDF
-              </span>
-            </div>
-          </div>
-
-          {/* Technical spec card */}
-          <div className="corner-ticks panel hidden self-end p-8 lg:block">
-            <p className="eyebrow mb-6">Lots techniques</p>
-            <ul className="divide-y divide-border">
-              {[
-                ["Plomberie", "Réseaux & colonnes"],
-                ["Chauffage", "Chaufferie collective"],
-                ["VMC", "Simple / double flux"],
-                ["Gaz", "Mise en conformité"],
-              ].map(([k, v], i) => (
-                <li key={k} className="flex items-center justify-between py-4">
-                  <span className="flex items-center gap-4">
-                    <span className="index-num text-xs">0{i + 1}</span>
-                    <span className="font-display text-base font-semibold">{k}</span>
-                  </span>
-                  <span className="text-xs text-muted-foreground">{v}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
 
         {/* Marquee */}
-        <div className="overflow-hidden border-y border-border bg-secondary/40 py-4">
+        <div className="mt-3 overflow-hidden rounded-full border border-border bg-secondary/60 py-3.5">
           <div className="marquee-track">
             {[0, 1].map((dup) => (
               <div key={dup} className="flex shrink-0 items-center">
@@ -347,7 +305,7 @@ function Index() {
                     className="flex items-center gap-6 px-6 font-display text-sm tracking-[0.18em] whitespace-nowrap text-muted-foreground uppercase"
                   >
                     {d}
-                    <span className="h-1 w-1 bg-gold" />
+                    <span className="h-1 w-1 rounded-full bg-gold" />
                   </span>
                 ))}
               </div>
@@ -357,23 +315,23 @@ function Index() {
       </section>
 
       {/* STATS */}
-      <section className="band-cream pt-20 lg:pt-28">
-        <div className="mx-auto grid max-w-[1400px] grid-cols-2 px-5 md:px-10 lg:grid-cols-4">
-          {stats.map((s, i) => (
-            <div
-              key={s.label}
-              className={`border-border py-12 lg:py-16 ${i % 2 === 1 ? "border-l pl-6" : "pr-6"} ${i < 2 ? "border-b lg:border-b-0" : ""} ${i === 2 ? "lg:border-l lg:pl-6" : ""} ${i === 3 ? "lg:pl-6" : ""}`}
-            >
-              <div className="font-display text-4xl leading-none font-bold text-gold sm:text-5xl lg:text-6xl">
-                {s.value}
+      <section className="px-3 pt-3 md:px-5">
+        <div className="dicko-pattern relative overflow-hidden rounded-[2rem] bg-card px-6 py-12 md:px-12 lg:py-16">
+          <div className="mx-auto grid max-w-[1400px] grid-cols-2 gap-y-10 lg:grid-cols-4">
+            {stats.map((s) => (
+              <div key={s.label} className="px-2">
+                <div className="font-display text-4xl leading-none font-bold text-gold sm:text-5xl lg:text-6xl">
+                  {s.value}
+                </div>
+                <div className="mt-3 text-xs tracking-[0.16em] text-muted-foreground uppercase">
+                  {s.label}
+                </div>
               </div>
-              <div className="mt-3 text-xs tracking-[0.16em] text-muted-foreground uppercase">
-                {s.label}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
+
 
       {/* À PROPOS */}
       <section id="apropos" className="band-cream relative py-24 lg:py-32">
