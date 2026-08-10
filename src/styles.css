@@ -296,7 +296,7 @@
   }
 }
 
-/* Motif DICKO — le symbole du logo répété en trame de fond */
+/* Motif DICKO — le symbole du logo apparaît une seule fois, en gris filigrane */
 @utility dicko-pattern {
   position: relative;
   isolation: isolate;
@@ -306,20 +306,15 @@
     position: absolute;
     inset: 0;
     z-index: -1;
-    background-color: color-mix(in oklab, var(--foreground) 9%, transparent);
-    -webkit-mask-image:
-      url("/dicko-mark.svg"), linear-gradient(115deg, transparent 30%, black 75%);
-    mask-image: url("/dicko-mark.svg"), linear-gradient(115deg, transparent 30%, black 75%);
-    -webkit-mask-repeat: repeat, no-repeat;
-    mask-repeat: repeat, no-repeat;
-    -webkit-mask-size:
-      104px 104px,
-      100% 100%;
-    mask-size:
-      104px 104px,
-      100% 100%;
-    -webkit-mask-composite: source-in;
-    mask-composite: intersect;
+    background-color: color-mix(in oklab, var(--foreground) 6%, transparent);
+    -webkit-mask-image: url("/dicko-mark.svg");
+    mask-image: url("/dicko-mark.svg");
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: right -60px bottom -60px;
+    mask-position: right -60px bottom -60px;
+    -webkit-mask-size: min(40%, 360px);
+    mask-size: min(40%, 360px);
     border-radius: inherit;
     pointer-events: none;
   }
@@ -334,21 +329,15 @@
     position: absolute;
     inset: 0;
     z-index: -1;
-    background-color: color-mix(in oklab, var(--gold) 30%, transparent);
-    -webkit-mask-image:
-      url("/dicko-mark.svg"), radial-gradient(110% 95% at 100% 0%, black, transparent 68%);
-    mask-image:
-      url("/dicko-mark.svg"), radial-gradient(110% 95% at 100% 0%, black, transparent 68%);
-    -webkit-mask-repeat: repeat, no-repeat;
-    mask-repeat: repeat, no-repeat;
-    -webkit-mask-size:
-      128px 128px,
-      100% 100%;
-    mask-size:
-      128px 128px,
-      100% 100%;
-    -webkit-mask-composite: source-in;
-    mask-composite: intersect;
+    background-color: color-mix(in oklab, var(--foreground) 6%, transparent);
+    -webkit-mask-image: url("/dicko-mark.svg");
+    mask-image: url("/dicko-mark.svg");
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: right -60px bottom -60px;
+    mask-position: right -60px bottom -60px;
+    -webkit-mask-size: min(40%, 360px);
+    mask-size: min(40%, 360px);
     border-radius: inherit;
     pointer-events: none;
   }
