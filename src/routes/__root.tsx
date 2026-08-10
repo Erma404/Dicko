@@ -83,6 +83,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        name: "google-site-verification",
+        content: "wvBc1d2r8JjvW61AbZ57dV3t3Q0SsPY_WxdhiE9cYUs",
+      },
       { title: "DICKO — Plombier Chauffagiste Paris & Île-de-France" },
       {
         name: "description",
