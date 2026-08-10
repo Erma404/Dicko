@@ -17,6 +17,7 @@ import {
   Zap,
 } from "lucide-react";
 
+import dickoLogo from "@/assets/dicko-logo.png.asset.json";
 import heroPortrait from "@/assets/hero-portrait.jpg";
 import aboutImg from "@/assets/about-team.jpg";
 import servPlomberie from "@/assets/service-plomberie.jpg";
@@ -226,7 +227,14 @@ function Index() {
       {/* NAV */}
       <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-5 md:px-10">
-          <a href="#top" className="flex items-baseline gap-2">
+          <a href="#top" className="flex items-center gap-3">
+            <img
+              src={dickoLogo.url}
+              alt="Logo DICKO"
+              width={500}
+              height={500}
+              className="h-9 w-9 shrink-0 object-contain"
+            />
             <span className="font-display text-xl font-bold tracking-[0.24em] text-foreground">
               DICKO
             </span>
@@ -234,6 +242,7 @@ function Index() {
               CVC · IDF
             </span>
           </a>
+
           <nav className="hidden items-center gap-8 md:flex">
             {[
               ["Expertises", "#services"],
@@ -644,13 +653,41 @@ function Index() {
 
 
       {/* FOOTER */}
-      <footer className="border-t border-border py-10">
-        <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 px-5 text-xs text-muted-foreground md:flex-row md:px-10">
-          <span className="font-display tracking-[0.24em] text-foreground">DICKO</span>
-          <span>Plomberie · Chauffage · VMC · Gaz — Île-de-France</span>
-          <span>© {new Date().getFullYear()} DICKO</span>
+      <footer className="border-t border-border pt-16">
+        <div className="mx-auto max-w-[1400px] px-5 md:px-10">
+          <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+            <img
+              src={dickoLogo.url}
+              alt="Logo DICKO"
+              width={500}
+              height={500}
+              loading="lazy"
+              className="h-20 w-20 object-contain md:h-24 md:w-24"
+            />
+            <div className="max-w-sm text-sm text-muted-foreground">
+              Plomberie · Chauffage · VMC · Gaz — Installations CVC pour les professionnels
+              d'Île-de-France.
+            </div>
+            <a href="#contact" className="btn-gold">
+              Demander un devis <ArrowUpRight className="h-4 w-4" />
+            </a>
+          </div>
+
+          <div
+            aria-hidden
+            className="mt-12 font-display leading-[0.8] font-bold tracking-[0.06em] text-foreground/10 select-none"
+            style={{ fontSize: "clamp(4.5rem, 22vw, 20rem)" }}
+          >
+            DICKO
+          </div>
+
+          <div className="flex flex-col items-center justify-between gap-3 border-t border-border py-6 text-xs text-muted-foreground md:flex-row">
+            <span>© {new Date().getFullYear()} DICKO — Tous droits réservés</span>
+            <span className="tracking-[0.2em] uppercase">Paris · Île-de-France</span>
+          </div>
         </div>
       </footer>
+
     </div>
   );
 }
