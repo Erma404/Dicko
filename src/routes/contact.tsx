@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { Clock, Mail, Minus, Phone, Plus } from "lucide-react";
+import { useState, type FormEvent } from "react";
+import { CheckCircle2, Clock, Mail, Minus, Phone, Plus } from "lucide-react";
+import { useHCaptcha } from "@/hooks/use-hcaptcha";
+import { submitToWeb3Forms } from "@/lib/web3forms";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -32,18 +34,21 @@ const coordonnees = [
     title: "Téléphone / WhatsApp",
     value: "06 15 03 53 00",
     sub: "Du lundi au vendredi, 8h-18h",
+    href: "https://wa.me/33615035300?text=Bonjour%2C%20je%20souhaite%20obtenir%20un%20devis%20pour%20mes%20travaux%20CVC.",
   },
   {
     icon: Mail,
     title: "Email",
     value: "contact@dicko-pvc.fr",
     sub: "Réponse sous 24h ouvrées",
+    href: "mailto:contact@dicko-pvc.fr",
   },
   {
     icon: Clock,
     title: "Horaires",
     value: "Lun - Ven : 8h - 18h",
     sub: "Intervention sur chantier selon planning",
+    href: null,
   },
 ];
 
@@ -73,14 +78,47 @@ const faq = [
 const fieldClass =
   "mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-gold";
 
+type FormStatus = "idle" | "sending" | "sent" | "error";
+
 function ContactPage() {
   const [open, setOpen] = useState<number | null>(0);
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const { containerRef: captchaRef, getToken } = useHCaptcha(true);
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+
+    // Honeypot : un bot qui remplit ce champ caché est rejeté côté serveur Web3Forms.
+    if (fd.get("botcheck")) return;
+
+    setStatus("sending");
+    try {
+      await submitToWeb3Forms({
+        "h-captcha-response": getToken(),
+        subject: "Nouveau message depuis dicko-chauffage.com",
+        from_name: "Dicko BTP Site Web",
+        entreprise: fd.get("entreprise"),
+        name: fd.get("contact"),
+        email: fd.get("email"),
+        phone: fd.get("telephone"),
+        project: fd.get("projet"),
+        location: fd.get("localisation"),
+        message: fd.get("description"),
+      });
+      setStatus("sent");
+      form.reset();
+    } catch {
+      setStatus("error");
+    }
+  }
 
   return (
     <main className="bg-background text-foreground">
       {/* HERO */}
       <section className="px-3 pt-3 md:px-5">
-        <div className="band-ink dicko-pattern relative overflow-hidden rounded-[2rem] px-6 py-20 md:rounded-[2.5rem] md:px-12 lg:py-28">
+        <div className="band-ink dicko-watermark relative overflow-hidden rounded-[2rem] px-6 py-20 md:rounded-[2.5rem] md:px-12 lg:py-28">
           <div className="mx-auto max-w-[1400px]">
             <span className="eyebrow">Contact</span>
             <h1 className="mt-6 max-w-4xl text-[2.2rem] leading-[1.02] font-bold tracking-tight sm:text-5xl lg:text-[4rem]">
@@ -117,7 +155,18 @@ function ContactPage() {
                   </span>
                   <div>
                     <h3 className="text-sm font-semibold">{c.title}</h3>
-                    <p className="mt-1 font-display text-lg font-semibold">{c.value}</p>
+                    {c.href ? (
+                      <a
+                        href={c.href}
+                        target={c.href.startsWith("http") ? "_blank" : undefined}
+                        rel={c.href.startsWith("http") ? "noopener" : undefined}
+                        className="mt-1 block font-display text-lg font-semibold transition-colors hover:text-gold"
+                      >
+                        {c.value}
+                      </a>
+                    ) : (
+                      <p className="mt-1 font-display text-lg font-semibold">{c.value}</p>
+                    )}
                     <p className="mt-1 text-xs text-muted-foreground">{c.sub}</p>
                   </div>
                 </div>
@@ -130,54 +179,82 @@ function ContactPage() {
 
           <div className="rounded-[2rem] border border-border bg-card p-8 md:p-10">
             <h2 className="text-2xl sm:text-3xl">Demander un devis</h2>
-            <form className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
-              <label className="text-sm">
-                Nom de l'entreprise *
-                <input required type="text" name="entreprise" className={fieldClass} />
-              </label>
-              <label className="text-sm">
-                Nom du contact *
-                <input required type="text" name="contact" className={fieldClass} />
-              </label>
-              <label className="text-sm">
-                Email *
-                <input required type="email" name="email" className={fieldClass} />
-              </label>
-              <label className="text-sm">
-                Téléphone
-                <input type="tel" name="telephone" className={fieldClass} />
-              </label>
-              <label className="text-sm">
-                Type de projet *
-                <select required name="projet" defaultValue="" className={fieldClass}>
-                  <option value="" disabled>
-                    Sélectionnez
-                  </option>
-                  <option>Plomberie</option>
-                  <option>Chauffage</option>
-                  <option>VMC</option>
-                  <option>Gaz</option>
-                  <option>CVC complet</option>
-                </select>
-              </label>
-              <label className="text-sm">
-                Localisation *
-                <input required type="text" name="localisation" className={fieldClass} />
-              </label>
-              <label className="text-sm sm:col-span-2">
-                Description du projet
-                <textarea name="description" rows={5} className={fieldClass} />
-              </label>
-              <div className="sm:col-span-2">
-                <button type="submit" className="btn-gold">
-                  Envoyer ma demande
-                </button>
-                <p className="mt-4 text-xs text-muted-foreground">
-                  * Champs obligatoires. En soumettant ce formulaire, vous acceptez notre politique
-                  de confidentialité.
+            {status === "sent" ? (
+              <div className="mt-8 flex flex-col items-center gap-3 rounded-xl bg-muted py-12 text-center">
+                <CheckCircle2 className="h-10 w-10 text-gold" strokeWidth={1.6} />
+                <p className="font-display text-lg font-semibold">Message envoyé !</p>
+                <p className="max-w-sm text-sm text-muted-foreground">
+                  Merci, nous revenons vers vous sous 24h ouvrées.
                 </p>
+                <button type="button" onClick={() => setStatus("idle")} className="btn-ghost mt-2 text-sm">
+                  Envoyer un autre message
+                </button>
               </div>
-            </form>
+            ) : (
+              <form onSubmit={handleSubmit} className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <input
+                  type="checkbox"
+                  name="botcheck"
+                  className="hidden"
+                  style={{ display: "none" }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
+                <label className="text-sm">
+                  Nom de l'entreprise *
+                  <input required type="text" name="entreprise" className={fieldClass} />
+                </label>
+                <label className="text-sm">
+                  Nom du contact *
+                  <input required type="text" name="contact" className={fieldClass} />
+                </label>
+                <label className="text-sm">
+                  Email *
+                  <input required type="email" name="email" className={fieldClass} />
+                </label>
+                <label className="text-sm">
+                  Téléphone
+                  <input type="tel" name="telephone" className={fieldClass} />
+                </label>
+                <label className="text-sm">
+                  Type de projet *
+                  <select required name="projet" defaultValue="" className={fieldClass}>
+                    <option value="" disabled>
+                      Sélectionnez
+                    </option>
+                    <option>Plomberie</option>
+                    <option>Chauffage</option>
+                    <option>VMC</option>
+                    <option>Gaz</option>
+                    <option>CVC complet</option>
+                  </select>
+                </label>
+                <label className="text-sm">
+                  Localisation *
+                  <input required type="text" name="localisation" className={fieldClass} />
+                </label>
+                <label className="text-sm sm:col-span-2">
+                  Description du projet
+                  <textarea name="description" rows={5} className={fieldClass} />
+                </label>
+                <div className="sm:col-span-2" ref={captchaRef} />
+                {status === "error" && (
+                  <p className="text-sm text-destructive sm:col-span-2">
+                    L'envoi a échoué. Vérifiez votre connexion et réessayez.
+                  </p>
+                )}
+                <div className="sm:col-span-2">
+                  <button type="submit" disabled={status === "sending"} className="btn-gold disabled:cursor-not-allowed disabled:opacity-60">
+                    {status === "sending" ? "Envoi en cours..." : "Envoyer ma demande"}
+                  </button>
+                  <p className="mt-4 text-xs text-muted-foreground">
+                    * Champs obligatoires. En soumettant ce formulaire, vous acceptez notre politique
+                    de confidentialité.
+                  </p>
+                </div>
+              </form>
+            )}
           </div>
         </div>
       </section>

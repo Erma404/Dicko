@@ -95,7 +95,7 @@ function AProposPage() {
     <main className="bg-background text-foreground">
       {/* HERO */}
       <section className="px-3 pt-3 md:px-5">
-        <div className="band-ink dicko-pattern relative overflow-hidden rounded-[2rem] px-6 py-20 md:rounded-[2.5rem] md:px-12 lg:py-28">
+        <div className="band-ink dicko-watermark relative overflow-hidden rounded-[2rem] px-6 py-20 md:rounded-[2.5rem] md:px-12 lg:py-28">
           <div className="mx-auto max-w-[1400px]">
             <span className="eyebrow">À propos de nous</span>
             <h1 className="mt-6 max-w-4xl text-[2.2rem] leading-[1.02] font-bold tracking-tight sm:text-5xl lg:text-[4rem]">
@@ -223,7 +223,7 @@ function AProposPage() {
 
       {/* PROXIMITÉ */}
       <section className="px-3 py-6 md:px-5">
-        <div className="band-ink dicko-pattern overflow-hidden rounded-[2rem] px-6 py-20 md:rounded-[2.5rem] md:px-12 lg:py-28">
+        <div className="band-ink dicko-watermark overflow-hidden rounded-[2rem] px-6 py-20 md:rounded-[2.5rem] md:px-12 lg:py-28">
           <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-14 lg:grid-cols-[1.15fr_0.85fr]">
             <div>
               <h2 className="max-w-xl text-3xl leading-tight sm:text-5xl">
@@ -287,7 +287,7 @@ function AProposPage() {
       </section>
 
       {/* SEO TEXT */}
-      <section className="band-cream dicko-watermark relative isolate py-20">
+      <section className="band-cream relative py-20">
         <div className="mx-auto max-w-[900px] px-5 md:px-10">
           <h2 className="text-2xl sm:text-3xl">Notre expertise technique</h2>
           <p className="mt-6 leading-relaxed text-muted-foreground">

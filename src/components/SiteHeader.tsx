@@ -2,7 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
-import dickoLogo from "@/assets/dicko-logo.png.asset.json";
+import dickoLogo from "@/assets/dicko-logo.png";
+import { useQuoteModal } from "@/lib/quote-modal-context";
 
 const nav = [
   { label: "Accueil", to: "/" },
@@ -16,6 +17,8 @@ const nav = [
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [footerVisible, setFooterVisible] = useState(false);
+  const { openQuoteModal } = useQuoteModal();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -24,8 +27,32 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Le header se détache et disparaît dès que le footer entre dans le
+  // viewport (iso prod) : un IntersectionObserver plutôt qu'un pur ratio
+  // scroll/hauteur de page, pour que ça marche quel que soit la hauteur du
+  // footer ou de la fenêtre (mobile, desktop, footer court ou long).
+  useEffect(() => {
+    const footer = document.getElementById("site-footer");
+    if (!footer) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setFooterVisible(entry.isIntersecting);
+        if (entry.isIntersecting) setOpen(false);
+      },
+      { threshold: 0 },
+    );
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="sticky top-0 z-50 px-3 pt-3 md:px-5 md:pt-4">
+    <div
+      className={`sticky top-0 z-50 px-3 pt-3 transition-transform duration-300 ease-in md:px-5 md:pt-4 ${
+        footerVisible ? "-translate-y-[130%]" : "translate-y-0"
+      }`}
+      aria-hidden={footerVisible}
+      inert={footerVisible ? true : undefined}
+    >
       <header
         className={`band-ink mx-auto max-w-[1400px] rounded-[1.5rem] px-4 transition-shadow duration-300 md:px-6 ${
           scrolled ? "shadow-[0_22px_50px_-30px_rgba(20,20,25,0.65)]" : ""
@@ -34,7 +61,7 @@ export function SiteHeader() {
         <div className="flex h-16 items-center justify-between gap-6 md:h-[4.5rem]">
           <Link to="/" className="flex items-center gap-3">
             <img
-              src={dickoLogo.url}
+              src={dickoLogo}
               alt="Logo DICKO — plomberie, chauffage, VMC"
               width={500}
               height={500}
@@ -65,9 +92,13 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <Link to="/contact" className="btn-gold hidden !px-5 !py-2.5 text-xs sm:inline-flex">
+            <button
+              type="button"
+              onClick={openQuoteModal}
+              className="btn-gold hidden !px-5 !py-2.5 text-xs sm:inline-flex"
+            >
               Demande de devis
-            </Link>
+            </button>
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
@@ -97,9 +128,16 @@ export function SiteHeader() {
                 </li>
               ))}
               <li className="pt-3">
-                <Link to="/contact" onClick={() => setOpen(false)} className="btn-gold w-full justify-center">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setOpen(false);
+                    openQuoteModal();
+                  }}
+                  className="btn-gold w-full justify-center"
+                >
                   Demande de devis
-                </Link>
+                </button>
               </li>
             </ul>
           </nav>

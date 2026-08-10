@@ -3,8 +3,8 @@ import { ArrowUpRight, Building2, CheckCircle2, Landmark, Users } from "lucide-r
 
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
-import servVmc from "@/assets/service-vmc.jpg";
-import servGaz from "@/assets/service-gaz.jpg";
+import project3 from "@/assets/project-3.jpg";
+import project4 from "@/assets/project-4.jpg";
 
 export const Route = createFileRoute("/realisations")({
   head: () => ({
@@ -51,8 +51,8 @@ const projets = [
       "Chantier livré dans les délais, mise en conformité totale du bâtiment et satisfaction des copropriétaires.",
     tags: ["Colonnes montantes", "Réseaux sanitaires", "Mise en conformité"],
     lire: [
-      "Colonne montante qui fuit en immeuble haussmannien",
-      "Fuite d'eau en appartement à Paris",
+      { title: "Colonne montante qui fuit en immeuble haussmannien", slug: "colonne-montante-fuite-immeuble-haussmannien" },
+      { title: "Fuite d'eau en appartement à Paris", slug: "fuite-eau-appartement-paris" },
     ],
     img: project1,
   },
@@ -68,7 +68,10 @@ const projets = [
     resultat:
       "Efficacité énergétique optimale, confort thermique homogène et réduction des coûts énergétiques.",
     tags: ["Plancher chauffant", "Chaufferie", "Régulation"],
-    lire: ["Chauffage collectif en copropriété", "Chaudière qui ne chauffe plus : les causes"],
+    lire: [
+      { title: "Chauffage collectif en copropriété", slug: "chauffage-collectif-copropriete-obligations-syndic" },
+      { title: "Chaudière qui ne chauffe plus : les causes", slug: "chaudiere-ne-chauffe-plus-causes-paris" },
+    ],
     img: project2,
   },
   {
@@ -83,8 +86,8 @@ const projets = [
     resultat:
       "Qualité d'air optimale, économies d'énergie significatives et conformité aux normes RE2020.",
     tags: ["VMC double flux", "Récupération chaleur", "RE2020"],
-    lire: ["VMC en immeuble : est-ce obligatoire ?"],
-    img: servVmc,
+    lire: [{ title: "VMC en immeuble : est-ce obligatoire ?", slug: "vmc-obligatoire-immeuble-reglementation" }],
+    img: project3,
   },
   {
     tag: "Gaz",
@@ -98,8 +101,8 @@ const projets = [
     resultat:
       "Conformité totale aux normes gaz bâtiment, certification obtenue et mise en service sans incident.",
     tags: ["Réseau gaz", "Sécurité", "Certification"],
-    lire: ["Détecteur de CO obligatoire à Paris ?"],
-    img: servGaz,
+    lire: [{ title: "Détecteur de CO obligatoire à Paris ?", slug: "detecteur-monoxyde-carbone-obligatoire-paris" }],
+    img: project4,
   },
 ];
 
@@ -126,7 +129,7 @@ function RealisationsPage() {
     <main className="bg-background text-foreground">
       {/* HERO */}
       <section className="px-3 pt-3 md:px-5">
-        <div className="band-ink dicko-pattern relative overflow-hidden rounded-[2rem] px-6 py-20 md:rounded-[2.5rem] md:px-12 lg:py-28">
+        <div className="band-ink dicko-watermark relative overflow-hidden rounded-[2rem] px-6 py-20 md:rounded-[2.5rem] md:px-12 lg:py-28">
           <div className="mx-auto max-w-[1400px]">
             <span className="eyebrow">Nos Réalisations</span>
             <h1 className="mt-6 max-w-4xl text-[2.2rem] leading-[1.02] font-bold tracking-tight sm:text-5xl lg:text-[4rem]">
@@ -220,9 +223,13 @@ function RealisationsPage() {
                   <h3 className="text-sm font-semibold">À lire aussi</h3>
                   <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
                     {p.lire.map((l) => (
-                      <li key={l}>
-                        <Link to="/blog" className="transition-colors hover:text-gold">
-                          {l}
+                      <li key={l.slug}>
+                        <Link
+                          to="/blog/$slug"
+                          params={{ slug: l.slug }}
+                          className="transition-colors hover:text-gold"
+                        >
+                          {l.title}
                         </Link>
                       </li>
                     ))}
@@ -236,7 +243,7 @@ function RealisationsPage() {
 
       {/* SATISFACTION */}
       <section className="px-3 py-6 md:px-5">
-        <div className="band-ink dicko-pattern overflow-hidden rounded-[2rem] px-6 py-20 md:rounded-[2.5rem] md:px-12 lg:py-28">
+        <div className="band-ink dicko-watermark overflow-hidden rounded-[2rem] px-6 py-20 md:rounded-[2.5rem] md:px-12 lg:py-28">
           <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-14 lg:grid-cols-2">
             <h2 className="text-3xl leading-tight sm:text-5xl">
               La <span className="text-gold">satisfaction client</span> au cœur de notre métier
@@ -289,7 +296,7 @@ function RealisationsPage() {
 
       {/* CTA */}
       <section className="px-3 py-6 md:px-5">
-        <div className="band-ink dicko-pattern overflow-hidden rounded-[2rem] px-6 py-20 text-center md:rounded-[2.5rem] md:px-12 lg:py-28">
+        <div className="band-ink dicko-watermark overflow-hidden rounded-[2rem] px-6 py-20 text-center md:rounded-[2.5rem] md:px-12 lg:py-28">
           <div className="mx-auto max-w-2xl">
             <h2 className="text-3xl leading-tight sm:text-5xl">Vous avez un projet ?</h2>
             <p className="mt-6 leading-relaxed text-muted-foreground">

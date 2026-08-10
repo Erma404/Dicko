@@ -41,6 +41,7 @@
   --color-ring: var(--ring);
   --color-gold: var(--gold);
   --color-gold-soft: var(--gold-soft);
+  --color-gold-hover: var(--gold-hover);
   --color-steel: var(--steel);
   --color-ink: var(--ink);
   --color-paper: var(--paper);
@@ -54,6 +55,9 @@
   /* Or DICKO (issu du logo) */
   --gold: oklch(0.74 0.135 78);
   --gold-soft: oklch(0.84 0.115 82);
+  /* Survol des CTA : même teinte jaune doré (hue 78-80), juste plus riche/
+     saturée que le gold statique pour un retour visuel net (#CB8A00). */
+  --gold-hover: oklch(0.68 0.16 80);
   --steel: oklch(0.93 0.004 250);
 
   /* Base claire */
@@ -91,18 +95,19 @@
   color: var(--foreground);
 }
 
-/* Bloc encre — inverse les tokens localement */
+/* Bloc encre — inverse les tokens localement (#152e3D, contraste AA/AAA vérifié) */
 .band-ink {
-  --background: oklch(0.17 0.008 250);
+  --background: oklch(0.289 0.0415 236.94); /* #152e3D */
   --foreground: oklch(0.97 0.004 95);
-  --card: oklch(0.21 0.008 250);
+  --card: oklch(0.33 0.038 236.94); /* #223847 */
   --card-foreground: oklch(0.97 0.004 95);
-  --muted: oklch(0.24 0.008 250);
+  --muted: oklch(0.36 0.032 236.94); /* #2d404c */
   --muted-foreground: oklch(0.75 0.006 250);
   --primary: oklch(0.8 0.128 80);
-  --primary-foreground: oklch(0.17 0.008 250);
+  --primary-foreground: oklch(0.289 0.0415 236.94);
   --gold: oklch(0.82 0.13 80);
   --gold-soft: oklch(0.88 0.1 84);
+  --gold-hover: oklch(0.68 0.16 80);
   --border: oklch(1 0 0 / 12%);
   background-color: var(--background);
   color: var(--foreground);
@@ -193,7 +198,7 @@
   box-shadow: 0 0 0 0 color-mix(in oklab, var(--gold) 40%, transparent);
 
   &:hover {
-    background: var(--gold-soft);
+    background: var(--gold-hover);
     transform: translateY(-2px);
     box-shadow: 0 16px 34px -18px color-mix(in oklab, var(--foreground) 70%, transparent);
   }
@@ -220,6 +225,31 @@
     border-color: var(--gold);
     color: var(--gold);
     background: color-mix(in oklab, var(--foreground) 10%, transparent);
+  }
+}
+
+/* Petit CTA secondaire iso prod (ex: carte "À propos" en sidebar d'article) :
+   fond encre plein, texte + bordure gold, s'inverse au survol. */
+@utility btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--ink);
+  color: var(--gold);
+  border: 1.5px solid var(--gold);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  padding: 0.65rem 1.25rem;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+
+  &:hover {
+    background: var(--gold);
+    color: var(--ink);
   }
 }
 
@@ -351,8 +381,11 @@
   &::before {
     content: "";
     position: absolute;
-    top: -4%;
-    right: -4%;
+    /* Décalé vers l'intérieur (et non en négatif) : garantit que le
+       filigrane reste toujours visible en entier, jamais rogné par le
+       overflow-hidden des cartes qui le portent. */
+    top: 4%;
+    right: 4%;
     width: min(34%, 380px);
     aspect-ratio: 1;
     z-index: -1;
@@ -366,5 +399,78 @@
     mask-size: contain;
     pointer-events: none;
   }
+}
+
+/* Contenu d'article de blog (HTML sémantique injecté, sans classes) */
+.article-prose {
+  color: var(--foreground);
+  line-height: 1.75;
+}
+.article-prose h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.article-prose h3 {
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.article-prose p {
+  margin-bottom: 1.1rem;
+  color: color-mix(in oklab, var(--foreground) 85%, transparent);
+}
+.article-prose ul {
+  margin: 1.1rem 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.article-prose li {
+  color: color-mix(in oklab, var(--foreground) 85%, transparent);
+}
+.article-prose strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+/* Pages légales (mentions, confidentialité) */
+.legal-prose {
+  color: var(--foreground);
+  line-height: 1.75;
+}
+.legal-prose h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.legal-prose h2:first-child {
+  margin-top: 0;
+}
+.legal-prose p {
+  margin-bottom: 0.9rem;
+  color: color-mix(in oklab, var(--foreground) 85%, transparent);
+}
+.legal-prose ul {
+  margin: 0.9rem 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.legal-prose a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 

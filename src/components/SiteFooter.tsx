@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 
-import dickoLogo from "@/assets/dicko-logo.png.asset.json";
+import dickoLogo from "@/assets/dicko-logo.png";
 
 const navLinks = [
   { label: "Accueil", to: "/" },
@@ -16,18 +16,22 @@ const zones = [
   "Hauts-de-Seine (92)",
   "Seine-Saint-Denis (93)",
   "Val-de-Marne (94)",
+  "Seine-et-Marne (77)",
+  "Yvelines (78)",
+  "Essonne (91)",
+  "Val-d'Oise (95)",
 ];
 
 export function SiteFooter() {
   return (
-    <footer className="px-3 pb-3 md:px-5 md:pb-5">
-      <div className="band-ink dicko-pattern relative overflow-hidden rounded-[2rem] px-6 pt-16 md:rounded-[2.5rem] md:px-12">
+    <footer id="site-footer" className="px-3 pb-3 md:px-5 md:pb-5">
+      <div className="band-ink dicko-watermark relative overflow-hidden rounded-[2rem] px-6 pt-16 md:rounded-[2.5rem] md:px-12">
         <div className="mx-auto max-w-[1400px]">
           <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
             <div>
               <div className="flex items-center gap-3">
                 <img
-                  src={dickoLogo.url}
+                  src={dickoLogo}
                   alt="Logo DICKO — plomberie, chauffage et VMC"
                   width={500}
                   height={500}
@@ -97,13 +101,20 @@ export function SiteFooter() {
           <div className="flex flex-col items-center justify-between gap-3 border-t border-border py-6 text-xs text-muted-foreground md:flex-row">
             <span>© {new Date().getFullYear()} DICKO. Tous droits réservés.</span>
             <div className="flex flex-wrap items-center gap-6">
-              <Link to="/contact" className="transition-colors hover:text-foreground">
+              <Link to="/mentions-legales" className="transition-colors hover:text-foreground">
                 Mentions légales
               </Link>
-              <Link to="/contact" className="transition-colors hover:text-foreground">
+              <Link to="/politique-confidentialite" className="transition-colors hover:text-foreground">
                 Politique de confidentialité
               </Link>
-              <span>Réalisé par Ernestine</span>
+              <a
+                href="https://ernestine.framer.website/"
+                target="_blank"
+                rel="noopener"
+                className="transition-colors hover:text-foreground"
+              >
+                Réalisé par Ernestine
+              </a>
             </div>
           </div>
         </div>

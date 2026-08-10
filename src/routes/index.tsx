@@ -1,5 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { useQuoteModal } from "@/lib/quote-modal-context";
+import { blogPosts } from "@/data/blog-posts";
+import { blogImages } from "@/data/blog-images";
 import {
   ArrowUpRight,
   Building2,
@@ -151,29 +154,7 @@ const projects = [
   },
 ];
 
-const posts = [
-  {
-    cat: "Gaz",
-    date: "20 juillet 2026",
-    read: "6 min",
-    title: "Détecteur de monoxyde de carbone obligatoire à Paris : ce que dit la loi",
-    desc: "Réglementation du détecteur de CO, installations à risque et bonnes pratiques pour éviter l'intoxication dans votre logement.",
-  },
-  {
-    cat: "Plomberie",
-    date: "10 juillet 2026",
-    read: "5 min",
-    title: "Chauffagiste ou plombier : qui appeler selon votre panne ?",
-    desc: "Fuite, panne de chaudière, robinet qui goutte : le guide pour ne plus se tromper de corps de métier à Paris.",
-  },
-  {
-    cat: "Chauffage",
-    date: "25 juin 2026",
-    read: "7 min",
-    title: "Chauffage collectif en copropriété : obligations du syndic",
-    desc: "Dates de la trêve de chauffe, obligations d'entretien du syndic et répartition des charges de chauffage collectif.",
-  },
-];
+const posts = blogPosts.slice(0, 3);
 
 const faq = [
   {
@@ -210,13 +191,14 @@ function SectionLabel({ index, children }: { index: string; children: string }) 
 
 function Index() {
   const [open, setOpen] = useState<number | null>(0);
+  const { openQuoteModal } = useQuoteModal();
 
   return (
     <main className="bg-background text-foreground">
 
       {/* HERO */}
       <section id="top" className="px-3 pt-3 md:px-5">
-        <div className="band-ink dicko-pattern relative isolate overflow-hidden rounded-[2rem] md:rounded-[2.5rem]">
+        <div className="band-ink dicko-watermark relative isolate overflow-hidden rounded-[2rem] md:rounded-[2.5rem]">
           <img
             src={heroBright}
             alt="Technicien DICKO relevant une installation CVC en toiture"
@@ -241,9 +223,9 @@ function Index() {
                 promesses.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
-                <a href="#contact" className="btn-gold">
+                <button type="button" onClick={openQuoteModal} className="btn-gold">
                   Demander un devis <ArrowUpRight className="h-4 w-4" />
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -275,7 +257,7 @@ function Index() {
 
 
       {/* À PROPOS */}
-      <section id="apropos" className="band-cream dicko-watermark relative isolate py-24 lg:py-32">
+      <section id="apropos" className="band-cream relative py-24 lg:py-32">
         <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-16 px-5 md:px-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="relative">
             <img
@@ -329,9 +311,9 @@ function Index() {
               })}
             </div>
 
-            <a href="#services" className="btn-ghost mt-10">
+            <Link to="/a-propos" className="btn-ghost mt-10">
               En savoir plus <ArrowUpRight className="h-4 w-4" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -351,9 +333,10 @@ function Index() {
 
           <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2">
             {services.map((s) => (
-              <article
+              <Link
                 key={s.num}
-                className="group overflow-hidden rounded-[1.75rem] border border-border bg-card p-3 shadow-[0_1px_2px_rgba(20,20,25,0.04)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_28px_60px_-32px_rgba(20,20,25,0.35)]"
+                to="/services"
+                className="group block overflow-hidden rounded-[1.75rem] border border-border bg-card p-3 shadow-[0_1px_2px_rgba(20,20,25,0.04)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_28px_60px_-32px_rgba(20,20,25,0.35)]"
               >
                 <div className="overflow-hidden rounded-[1.35rem]">
                   <img
@@ -385,7 +368,7 @@ function Index() {
                     ))}
                   </ul>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
 
@@ -396,7 +379,7 @@ function Index() {
 
       {/* POURQUOI NOUS */}
       <section className="px-3 py-6 md:px-5">
-        <div className="band-ink dicko-pattern relative overflow-hidden rounded-[2rem] px-6 py-20 md:px-12 lg:py-28">
+        <div className="band-ink dicko-watermark relative overflow-hidden rounded-[2rem] px-6 py-20 md:px-12 lg:py-28">
           <div className="relative mx-auto max-w-[1400px]">
             <SectionLabel index="03">Pourquoi nous choisir</SectionLabel>
             <div className="mt-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
@@ -441,7 +424,7 @@ function Index() {
 
           <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-2">
             {projects.map((p) => (
-              <article key={p.title} className="group">
+              <Link key={p.title} to="/realisations" className="group block">
                 <div className="relative overflow-hidden rounded-3xl">
                   <img
                     src={p.img}
@@ -461,13 +444,13 @@ function Index() {
                 <p className="mt-2 max-w-lg text-sm leading-relaxed text-muted-foreground">
                   {p.desc}
                 </p>
-              </article>
+              </Link>
             ))}
           </div>
 
-          <a href="#contact" className="btn-ghost mt-14">
+          <Link to="/realisations" className="btn-ghost mt-14">
             Voir toutes nos réalisations <ArrowUpRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -487,28 +470,36 @@ function Index() {
 
           <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3">
             {posts.map((p) => (
-              <article key={p.title} className="group flex flex-col rounded-[1.5rem] border border-border bg-card p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_50px_-30px_rgba(20,20,25,0.35)]">
-                <div className="flex items-center gap-3 text-[11px] tracking-[0.16em] uppercase">
-                  <span className="text-gold">{p.cat}</span>
-                  <span className="text-muted-foreground">{p.date}</span>
-                  <span className="text-muted-foreground">{p.read}</span>
+              <Link
+                key={p.slug}
+                to="/blog/$slug"
+                params={{ slug: p.slug }}
+                className="group flex flex-col overflow-hidden rounded-[1.5rem] border border-border bg-card transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_50px_-30px_rgba(20,20,25,0.35)]"
+              >
+                <img src={blogImages[p.slug]} alt={p.title} className="h-40 w-full object-cover" />
+                <div className="flex flex-1 flex-col p-8">
+                  <div className="flex items-center gap-3 text-[11px] tracking-[0.16em] uppercase">
+                    <span className="text-gold">{p.category}</span>
+                    <span className="text-muted-foreground">{p.date}</span>
+                    <span className="text-muted-foreground">{p.read}</span>
+                  </div>
+                  <h3 className="mt-6 text-lg leading-snug transition-colors group-hover:text-gold">
+                    {p.title}
+                  </h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                    {p.description}
+                  </p>
+                  <span className="mt-8 inline-flex items-center gap-2 font-display text-xs font-semibold tracking-[0.14em] text-gold uppercase">
+                    Lire l'article <ArrowUpRight className="h-3.5 w-3.5" />
+                  </span>
                 </div>
-                <h3 className="mt-6 text-lg leading-snug transition-colors group-hover:text-gold">
-                  {p.title}
-                </h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-                  {p.desc}
-                </p>
-                <span className="mt-8 inline-flex items-center gap-2 font-display text-xs font-semibold tracking-[0.14em] text-gold uppercase">
-                  Lire l'article <ArrowUpRight className="h-3.5 w-3.5" />
-                </span>
-              </article>
+              </Link>
             ))}
           </div>
 
-          <a href="#blog" className="btn-ghost mt-14">
+          <Link to="/blog" className="btn-ghost mt-14">
             Voir tous les articles <ArrowUpRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -547,7 +538,7 @@ function Index() {
 
       {/* CTA */}
       <section id="contact" className="px-3 py-6 md:px-5">
-        <div className="band-ink dicko-pattern relative isolate overflow-hidden rounded-[2rem] md:rounded-[2.5rem]">
+        <div className="band-ink dicko-watermark relative isolate overflow-hidden rounded-[2rem] md:rounded-[2.5rem]">
           <img
             src={aboutImg}
             alt="Équipe DICKO sur chantier en Île-de-France"
@@ -566,9 +557,9 @@ function Index() {
               Un chef de chantier DICKO vous rappelle, visite le site et chiffre vos travaux de
               plomberie, chauffage ou VMC en Île-de-France.
             </p>
-            <a href="#contact" className="btn-gold mt-10">
+            <Link to="/contact" className="btn-gold mt-10">
               Nous contacter <ArrowUpRight className="h-4 w-4" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

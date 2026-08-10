@@ -12,4 +12,14 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // NOTE: Nitro's built-in "github-pages"/"static" preset prerenderer is
+  // currently broken upstream for TanStack Start (fails every route with
+  // "Not Found" — see https://github.com/TanStack/router/issues/6322, open
+  // since Jan 2026). Static export is instead produced by a custom capture
+  // script (scripts/export-static.mjs) that renders each route through the
+  // real SSR handler and writes plain HTML — see that file for details.
+  // Skip Nitro's own bundling so `vite build` doesn't crash on the broken
+  // prerender step; the SSR entry (src/server.ts) is invoked directly by
+  // the capture script instead.
+  nitro: false,
 });

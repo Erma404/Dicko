@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useQuoteModal } from "@/lib/quote-modal-context";
 import {
   ArrowUpRight,
   CheckCircle2,
@@ -159,11 +160,12 @@ const departements = [
 ];
 
 function ServicesPage() {
+  const { openQuoteModal } = useQuoteModal();
   return (
     <main className="bg-background text-foreground">
       {/* HERO */}
       <section className="px-3 pt-3 md:px-5">
-        <div className="band-ink dicko-pattern relative overflow-hidden rounded-[2rem] px-6 py-20 md:rounded-[2.5rem] md:px-12 lg:py-28">
+        <div className="band-ink dicko-watermark relative overflow-hidden rounded-[2rem] px-6 py-20 md:rounded-[2.5rem] md:px-12 lg:py-28">
           <div className="mx-auto max-w-[1400px]">
             <span className="eyebrow">Nos Services</span>
             <h1 className="mt-6 max-w-4xl text-[2.2rem] leading-[1.02] font-bold tracking-tight sm:text-5xl lg:text-[4rem]">
@@ -174,9 +176,9 @@ function ServicesPage() {
               Solutions techniques complètes pour vos projets de bâtiment en Île-de-France. De
               l'étude à la réalisation, nous vous accompagnons à chaque étape.
             </p>
-            <Link to="/contact" className="btn-gold mt-9">
+            <button type="button" onClick={openQuoteModal} className="btn-gold mt-9">
               Demander un devis <ArrowUpRight className="h-4 w-4" />
-            </Link>
+            </button>
           </div>
         </div>
       </section>
@@ -230,9 +232,9 @@ function ServicesPage() {
                   ))}
                 </div>
 
-                <Link to="/contact" className="btn-gold mt-8">
+                <button type="button" onClick={openQuoteModal} className="btn-gold mt-8">
                   Demander un devis <ArrowUpRight className="h-4 w-4" />
-                </Link>
+                </button>
 
                 <div className="mt-8 border-t border-border pt-6">
                   <h3 className="text-sm font-semibold">{s.conseilsTitle}</h3>
@@ -295,7 +297,7 @@ function ServicesPage() {
 
       {/* CTA */}
       <section className="px-3 py-6 md:px-5">
-        <div className="band-ink dicko-pattern overflow-hidden rounded-[2rem] px-6 py-20 text-center md:rounded-[2.5rem] md:px-12 lg:py-28">
+        <div className="band-ink dicko-watermark overflow-hidden rounded-[2rem] px-6 py-20 text-center md:rounded-[2.5rem] md:px-12 lg:py-28">
           <div className="mx-auto max-w-2xl">
             <h2 className="text-3xl leading-tight sm:text-5xl">
               Besoin d'un <span className="text-gold">devis</span> ?

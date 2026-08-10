@@ -8,6 +8,7 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
+    "export:static": "rm -rf dist && vite build && bun run scripts/export-static.ts",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
