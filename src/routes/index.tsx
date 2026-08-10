@@ -17,7 +17,7 @@ import {
   Zap,
 } from "lucide-react";
 
-import heroImg from "@/assets/hero-cvc.jpg";
+import heroPortrait from "@/assets/hero-portrait.jpg";
 import aboutImg from "@/assets/about-team.jpg";
 import servPlomberie from "@/assets/service-plomberie.jpg";
 import servChauffage from "@/assets/service-chauffage.jpg";
