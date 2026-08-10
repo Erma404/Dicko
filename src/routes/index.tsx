@@ -226,7 +226,14 @@ function Index() {
       {/* NAV */}
       <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-5 md:px-10">
-          <a href="#top" className="flex items-baseline gap-2">
+          <a href="#top" className="flex items-center gap-3">
+            <img
+              src={dickoLogo.url}
+              alt="Logo DICKO"
+              width={500}
+              height={500}
+              className="h-9 w-9 shrink-0 object-contain"
+            />
             <span className="font-display text-xl font-bold tracking-[0.24em] text-foreground">
               DICKO
             </span>
@@ -234,6 +241,7 @@ function Index() {
               CVC · IDF
             </span>
           </a>
+
           <nav className="hidden items-center gap-8 md:flex">
             {[
               ["Expertises", "#services"],
