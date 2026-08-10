@@ -59,7 +59,7 @@ window.silktideConsentManager.init({
       preferencesButtonAccessibleLabel: "Basculer les préférences"
     },
     preferences: {
-      title: "Customize your cookie preferences",
+      title: "Personnalisez vos préférences de cookies",
       description: "<p>Nous respectons votre droit à la confidentialité. Vous pouvez choisir de ne pas autoriser certains types de cookies. Vos préférences en matière de cookies s'appliqueront à l'ensemble de notre site web.</p>",
       saveButtonText: "Enregistrer et fermer",
       saveButtonAccessibleLabel: "Enregistrer et fermer",
