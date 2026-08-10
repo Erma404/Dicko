@@ -362,12 +362,13 @@
   &::before {
     content: "";
     position: absolute;
-    top: -8%;
-    right: -6%;
-    width: min(52%, 620px);
+    top: -4%;
+    right: -4%;
+    width: min(34%, 380px);
     aspect-ratio: 1;
     z-index: -1;
-    background-color: color-mix(in oklab, var(--foreground) 7%, transparent);
+    background-color: color-mix(in oklab, var(--foreground) 4%, transparent);
+
     -webkit-mask-image: url("/dicko-mark.svg");
     mask-image: url("/dicko-mark.svg");
     -webkit-mask-repeat: no-repeat;
