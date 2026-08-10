@@ -268,7 +268,7 @@ function Index() {
 
       {/* HERO */}
       <section id="top" className="px-3 pt-20 md:px-5">
-        <div className="dicko-pattern-gold relative isolate overflow-hidden rounded-[2rem] bg-card md:rounded-[2.5rem]">
+        <div className="band-ink dicko-pattern-gold relative isolate overflow-hidden rounded-[2rem] md:rounded-[2.5rem]">
           <img
             src={heroPortrait}
             alt="Technicien plombier chauffagiste DICKO en chaufferie"
@@ -325,7 +325,7 @@ function Index() {
 
       {/* STATS */}
       <section className="px-3 pt-3 md:px-5">
-        <div className="dicko-pattern relative overflow-hidden rounded-[2rem] bg-card px-6 py-12 md:px-12 lg:py-16">
+        <div className="band-ink dicko-pattern relative overflow-hidden rounded-[2rem] px-6 py-12 md:px-12 lg:py-16">
           <div className="mx-auto grid max-w-[1400px] grid-cols-2 gap-y-10 lg:grid-cols-4">
             {stats.map((s) => (
               <div key={s.label} className="px-2">
@@ -343,7 +343,7 @@ function Index() {
 
 
       {/* À PROPOS */}
-      <section id="apropos" className="band-cream relative py-24 lg:py-32">
+      <section id="apropos" className="band-cream dicko-watermark relative isolate py-24 lg:py-32">
         <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-16 px-5 md:px-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="relative">
             <img
@@ -388,7 +388,7 @@ function Index() {
               ].map(([Icon, title, desc]) => {
                 const I = Icon as typeof Building2;
                 return (
-                  <div key={title as string} className="rounded-2xl bg-card p-6">
+                  <div key={title as string} className="rounded-2xl border border-border bg-card p-6">
                     <I className="h-5 w-5 text-gold" strokeWidth={1.5} />
                     <h3 className="mt-4 text-base">{title as string}</h3>
                     <p className="mt-1 text-sm text-muted-foreground">{desc as string}</p>
@@ -405,7 +405,7 @@ function Index() {
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="border-b border-border py-24 lg:py-32">
+      <section id="services" className="py-24 lg:py-32">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
           <SectionLabel index="02">Nos Expertises</SectionLabel>
           <div className="mt-6 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
@@ -421,7 +421,7 @@ function Index() {
             {services.map((s) => (
               <article
                 key={s.num}
-                className="group overflow-hidden rounded-[1.75rem] bg-card p-3 transition-transform duration-500 hover:-translate-y-1"
+                className="group overflow-hidden rounded-[1.75rem] border border-border bg-card p-3 shadow-[0_1px_2px_rgba(20,20,25,0.04)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_28px_60px_-32px_rgba(20,20,25,0.35)]"
               >
                 <div className="overflow-hidden rounded-[1.35rem]">
                   <img
@@ -474,7 +474,7 @@ function Index() {
 
       {/* POURQUOI NOUS */}
       <section className="px-3 py-6 md:px-5">
-        <div className="dicko-pattern relative overflow-hidden rounded-[2rem] bg-card px-6 py-20 md:px-12 lg:py-28">
+        <div className="band-ink dicko-pattern relative overflow-hidden rounded-[2rem] px-6 py-20 md:px-12 lg:py-28">
           <div className="relative mx-auto max-w-[1400px]">
             <SectionLabel index="03">Pourquoi nous choisir</SectionLabel>
             <div className="mt-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
@@ -504,7 +504,7 @@ function Index() {
 
 
       {/* RÉALISATIONS */}
-      <section id="realisations" className="border-b border-border py-24 lg:py-32">
+      <section id="realisations" className="py-24 lg:py-32">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
           <SectionLabel index="04">Nos Réalisations</SectionLabel>
           <div className="mt-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
@@ -565,7 +565,7 @@ function Index() {
 
           <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3">
             {posts.map((p) => (
-              <article key={p.title} className="group flex flex-col rounded-2xl bg-card p-8">
+              <article key={p.title} className="group flex flex-col rounded-[1.5rem] border border-border bg-card p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_50px_-30px_rgba(20,20,25,0.35)]">
                 <div className="flex items-center gap-3 text-[11px] tracking-[0.16em] uppercase">
                   <span className="text-gold">{p.cat}</span>
                   <span className="text-muted-foreground">{p.date}</span>
@@ -591,7 +591,7 @@ function Index() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="border-b border-border py-24 lg:py-32">
+      <section id="faq" className="py-24 lg:py-32">
         <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-14 px-5 md:px-10 lg:grid-cols-[0.6fr_1.4fr]">
           <div>
             <SectionLabel index="06">FAQ</SectionLabel>
@@ -625,7 +625,7 @@ function Index() {
 
       {/* CTA */}
       <section id="contact" className="px-3 py-6 md:px-5">
-        <div className="dicko-pattern-gold relative isolate overflow-hidden rounded-[2rem] bg-card md:rounded-[2.5rem]">
+        <div className="band-ink dicko-pattern-gold relative isolate overflow-hidden rounded-[2rem] md:rounded-[2.5rem]">
           <img
             src={aboutImg}
             alt="Équipe DICKO sur chantier en Île-de-France"
@@ -653,40 +653,43 @@ function Index() {
 
 
       {/* FOOTER */}
-      <footer className="border-t border-border pt-16">
-        <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-          <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-            <img
-              src={dickoLogo.url}
-              alt="Logo DICKO"
-              width={500}
-              height={500}
-              loading="lazy"
-              className="h-20 w-20 object-contain md:h-24 md:w-24"
-            />
-            <div className="max-w-sm text-sm text-muted-foreground">
-              Plomberie · Chauffage · VMC · Gaz — Installations CVC pour les professionnels
-              d'Île-de-France.
+      <footer className="px-3 pb-3 md:px-5 md:pb-5">
+        <div className="band-ink dicko-pattern relative overflow-hidden rounded-[2rem] px-6 pt-16 md:rounded-[2.5rem] md:px-12">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+              <img
+                src={dickoLogo.url}
+                alt="Logo DICKO"
+                width={500}
+                height={500}
+                loading="lazy"
+                className="h-20 w-20 object-contain md:h-24 md:w-24"
+              />
+              <div className="max-w-sm text-sm text-muted-foreground">
+                Plomberie · Chauffage · VMC · Gaz — Installations CVC pour les professionnels
+                d'Île-de-France.
+              </div>
+              <a href="#contact" className="btn-gold">
+                Demander un devis <ArrowUpRight className="h-4 w-4" />
+              </a>
             </div>
-            <a href="#contact" className="btn-gold">
-              Demander un devis <ArrowUpRight className="h-4 w-4" />
-            </a>
-          </div>
 
-          <div
-            aria-hidden
-            className="mt-12 font-display leading-[0.8] font-bold tracking-[0.06em] text-foreground/10 select-none"
-            style={{ fontSize: "clamp(4.5rem, 22vw, 20rem)" }}
-          >
-            DICKO
-          </div>
+            <div
+              aria-hidden
+              className="mt-12 font-display leading-[0.8] font-bold tracking-[0.06em] text-foreground/12 select-none"
+              style={{ fontSize: "clamp(4.5rem, 21vw, 19rem)" }}
+            >
+              DICKO
+            </div>
 
-          <div className="flex flex-col items-center justify-between gap-3 border-t border-border py-6 text-xs text-muted-foreground md:flex-row">
-            <span>© {new Date().getFullYear()} DICKO — Tous droits réservés</span>
-            <span className="tracking-[0.2em] uppercase">Paris · Île-de-France</span>
+            <div className="flex flex-col items-center justify-between gap-3 border-t border-border py-6 text-xs text-muted-foreground md:flex-row">
+              <span>© {new Date().getFullYear()} DICKO — Tous droits réservés</span>
+              <span className="tracking-[0.2em] uppercase">Paris · Île-de-France</span>
+            </div>
           </div>
         </div>
       </footer>
+
 
     </div>
   );
