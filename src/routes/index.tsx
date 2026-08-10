@@ -17,7 +17,6 @@ import {
   Zap,
 } from "lucide-react";
 
-import dickoLogo from "@/assets/dicko-logo.png.asset.json";
 import heroBright from "@/assets/hero-bright.jpg";
 import aboutImg from "@/assets/about-team.jpg";
 import servPlomberie from "@/assets/service-plomberie.jpg";
@@ -223,10 +222,10 @@ function Index() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <main className="bg-background text-foreground">
 
       {/* HERO */}
-      <section id="top" className="px-3 pt-20 md:px-5">
+      <section id="top" className="px-3 pt-3 md:px-5">
         <div className="band-ink dicko-pattern relative isolate overflow-hidden rounded-[2rem] md:rounded-[2.5rem]">
           <img
             src={heroBright}
