@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
-import { CheckCircle2, Clock, Mail, Minus, Phone, Plus } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Clock, Mail, Minus, Phone, Plus } from "lucide-react";
 import { useHCaptcha } from "@/hooks/use-hcaptcha";
 import { submitToWeb3Forms } from "@/lib/web3forms";
 import { absoluteUrl, faqPageJsonLd, jsonLdScriptProps } from "@/lib/seo";
@@ -173,9 +173,26 @@ function ContactPage() {
                   </div>
                 </div>
               ))}
-              <address className="rounded-[1.5rem] border border-border bg-card p-6 text-sm tracking-[0.12em] uppercase not-italic">
-                25 rue Archereau, 75019 Paris
-              </address>
+              <div className="overflow-hidden rounded-[1.5rem] border border-border bg-card">
+                <iframe
+                  title="DICKO — 25 rue Archereau, 75019 Paris"
+                  src="https://www.google.com/maps?q=25+rue+Archereau,+75019+Paris&output=embed"
+                  width="100%"
+                  height="220"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="block grayscale-[20%]"
+                />
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=25+rue+Archereau,+75019+Paris"
+                  target="_blank"
+                  rel="noopener"
+                  className="flex items-center justify-between gap-3 px-6 py-4 text-sm tracking-[0.08em] uppercase transition-colors hover:text-gold"
+                >
+                  25 rue Archereau, 75019 Paris
+                  <ArrowUpRight className="h-4 w-4 shrink-0" />
+                </a>
+              </div>
             </div>
           </div>
 
