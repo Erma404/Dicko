@@ -62,6 +62,24 @@ export function organizationJsonLd() {
   };
 }
 
+export function serviceJsonLd(service: {
+  name: string;
+  description: string;
+  path: string;
+  serviceType: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.name,
+    description: service.description,
+    url: absoluteUrl(service.path),
+    serviceType: service.serviceType,
+    provider: { "@type": "Plumber", name: SITE_NAME, url: SITE_URL },
+    areaServed: { "@type": "AdministrativeArea", name: "Île-de-France" },
+  };
+}
+
 export function faqPageJsonLd(faqs: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",

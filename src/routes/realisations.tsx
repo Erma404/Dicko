@@ -14,7 +14,7 @@ export const Route = createFileRoute("/realisations")({
       {
         name: "description",
         content:
-          "Découvrez nos projets récents en plomberie, chauffage et VMC pour bâtiments professionnels en Île-de-France.",
+          "Nos réalisations en plomberie, chauffage collectif et VMC : immeubles, bureaux et bâtiments publics en Île-de-France. Projets menés par DICKO BTP.",
       },
       { property: "og:title", content: "Réalisations CVC Paris Île-de-France | Dicko BTP" },
       {

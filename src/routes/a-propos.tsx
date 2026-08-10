@@ -19,7 +19,7 @@ export const Route = createFileRoute("/a-propos")({
       {
         name: "description",
         content:
-          "Votre partenaire technique en installation CVC pour bâtiments professionnels en Île-de-France depuis plus de 15 ans.",
+          "DICKO BTP : entreprise CVC 100% B2B à Paris depuis 15 ans. Découvrez notre équipe, nos valeurs et notre zone d'intervention en Île-de-France.",
       },
       { property: "og:title", content: "À propos | Dicko BTP – Plombier Chauffagiste Paris" },
       {

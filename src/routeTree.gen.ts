@@ -15,9 +15,10 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
 import { Route as PolitiqueConfidentialiteRouteImport } from './routes/politique-confidentialite'
 import { Route as RealisationsRouteImport } from './routes/realisations'
-import { Route as ServicesRouteImport } from './routes/services'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesInstallationVmcRouteImport } from './routes/services.installation-vmc'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -50,11 +51,6 @@ const RealisationsRoute = RealisationsRouteImport.update({
   path: '/realisations',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/blog/',
   path: '/blog/',
@@ -65,6 +61,16 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesInstallationVmcRoute = ServicesInstallationVmcRouteImport.update({
+  id: '/services/installation-vmc',
+  path: '/services/installation-vmc',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -73,9 +79,10 @@ export interface FileRoutesByFullPath {
   '/mentions-legales': typeof MentionsLegalesRoute
   '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
   '/realisations': typeof RealisationsRoute
-  '/services': typeof ServicesRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/services/installation-vmc': typeof ServicesInstallationVmcRoute
   '/blog/': typeof BlogIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -84,9 +91,10 @@ export interface FileRoutesByTo {
   '/mentions-legales': typeof MentionsLegalesRoute
   '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
   '/realisations': typeof RealisationsRoute
-  '/services': typeof ServicesRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/services/installation-vmc': typeof ServicesInstallationVmcRoute
   '/blog': typeof BlogIndexRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -96,9 +104,10 @@ export interface FileRoutesById {
   '/mentions-legales': typeof MentionsLegalesRoute
   '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
   '/realisations': typeof RealisationsRoute
-  '/services': typeof ServicesRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/services/installation-vmc': typeof ServicesInstallationVmcRoute
   '/blog/': typeof BlogIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -109,9 +118,10 @@ export interface FileRouteTypes {
     | '/mentions-legales'
     | '/politique-confidentialite'
     | '/realisations'
-    | '/services'
     | '/blog/$slug'
+    | '/services/installation-vmc'
     | '/blog/'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -120,9 +130,10 @@ export interface FileRouteTypes {
     | '/mentions-legales'
     | '/politique-confidentialite'
     | '/realisations'
-    | '/services'
     | '/blog/$slug'
+    | '/services/installation-vmc'
     | '/blog'
+    | '/services'
   id:
     | '__root__'
     | '/'
@@ -131,9 +142,10 @@ export interface FileRouteTypes {
     | '/mentions-legales'
     | '/politique-confidentialite'
     | '/realisations'
-    | '/services'
     | '/blog/$slug'
+    | '/services/installation-vmc'
     | '/blog/'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -143,9 +155,10 @@ export interface RootRouteChildren {
   MentionsLegalesRoute: typeof MentionsLegalesRoute
   PolitiqueConfidentialiteRoute: typeof PolitiqueConfidentialiteRoute
   RealisationsRoute: typeof RealisationsRoute
-  ServicesRoute: typeof ServicesRoute
   BlogSlugRoute: typeof BlogSlugRoute
+  ServicesInstallationVmcRoute: typeof ServicesInstallationVmcRoute
   BlogIndexRoute: typeof BlogIndexRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -192,13 +205,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RealisationsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/blog/': {
       id: '/blog/'
       path: '/blog'
@@ -213,6 +219,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/installation-vmc': {
+      id: '/services/installation-vmc'
+      path: '/services/installation-vmc'
+      fullPath: '/services/installation-vmc'
+      preLoaderRoute: typeof ServicesInstallationVmcRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -223,9 +243,10 @@ const rootRouteChildren: RootRouteChildren = {
   MentionsLegalesRoute: MentionsLegalesRoute,
   PolitiqueConfidentialiteRoute: PolitiqueConfidentialiteRoute,
   RealisationsRoute: RealisationsRoute,
-  ServicesRoute: ServicesRoute,
   BlogSlugRoute: BlogSlugRoute,
+  ServicesInstallationVmcRoute: ServicesInstallationVmcRoute,
   BlogIndexRoute: BlogIndexRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

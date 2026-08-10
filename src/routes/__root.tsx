@@ -91,7 +91,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "DICKO, entreprise B2B d'installation CVC en Île-de-France : plomberie, chauffage collectif, VMC et réseaux gaz pour bâtiments professionnels.",
+          "DICKO BTP : plombier chauffagiste 100% B2B à Paris et en Île-de-France. Plomberie, chauffage collectif, VMC, gaz. Devis gratuit sous 24h ouvrées.",
       },
       { name: "author", content: "DICKO" },
       { property: "og:title", content: "DICKO — Plombier Chauffagiste Paris & Île-de-France" },

@@ -70,10 +70,15 @@ export function SiteFooter() {
             <div>
               <h2 className="text-sm font-semibold">Nos Services</h2>
               <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
-                {["Plomberie", "Chauffage", "VMC", "Gaz"].map((s) => (
-                  <li key={s}>
-                    <Link to="/services" className="transition-colors hover:text-foreground">
-                      {s}
+                {[
+                  { label: "Plomberie", to: "/services" as const },
+                  { label: "Chauffage", to: "/services" as const },
+                  { label: "VMC", to: "/services/installation-vmc" as const },
+                  { label: "Gaz", to: "/services" as const },
+                ].map((s) => (
+                  <li key={s.label}>
+                    <Link to={s.to} className="transition-colors hover:text-foreground">
+                      {s.label}
                     </Link>
                   </li>
                 ))}

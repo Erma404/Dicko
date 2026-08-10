@@ -12,7 +12,7 @@ export const Route = createFileRoute("/blog/")({
       {
         name: "description",
         content:
-          "Retrouvez tous nos conseils d'experts sur la plomberie, le chauffage, la VMC et le gaz à Paris et en Île-de-France.",
+          "Conseils d'experts en plomberie, chauffage collectif, VMC et gaz à Paris : réglementation, entretien, dépannage. Le blog technique de DICKO BTP.",
       },
       { property: "og:title", content: "Blog Plomberie Chauffage Paris | Dicko BTP" },
       {

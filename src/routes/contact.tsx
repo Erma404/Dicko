@@ -12,7 +12,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Contactez DICKO pour vos projets de plomberie, chauffage et VMC en Île-de-France. Devis et étude personnalisée sous 24h ouvrées.",
+          "Contactez DICKO BTP pour votre projet de plomberie, chauffage ou VMC en Île-de-France. Devis personnalisé sous 24h ouvrées, réponse rapide garantie.",
       },
       { property: "og:title", content: "Contact | Dicko BTP – Plombier Chauffagiste Paris" },
       {

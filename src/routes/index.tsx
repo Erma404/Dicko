@@ -37,7 +37,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Installation plomberie, chauffage collectif, VMC et réseaux gaz pour bâtiments professionnels en Île-de-France. Entreprise CVC 100% B2B.",
+          "Plombier chauffagiste B2B à Paris : plomberie, chauffage collectif, VMC, gaz pour bâtiments professionnels. 15 ans d'expérience, devis sous 24h.",
       },
       { property: "og:title", content: "DICKO — Plombier Chauffagiste Paris & Île-de-France" },
       {
@@ -103,6 +103,7 @@ const services = [
     ],
     img: servVmc,
     alt: "Installation VMC Bâtiment",
+    href: "/services/installation-vmc",
   },
   {
     num: "04",
@@ -338,7 +339,7 @@ function Index() {
             {services.map((s) => (
               <Link
                 key={s.num}
-                to="/services"
+                to={s.href ?? "/services"}
                 className="group block overflow-hidden rounded-[1.75rem] border border-border bg-card p-3 shadow-[0_1px_2px_rgba(20,20,25,0.04)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_28px_60px_-32px_rgba(20,20,25,0.35)]"
               >
                 <div className="overflow-hidden rounded-[1.35rem]">

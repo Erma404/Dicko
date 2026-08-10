@@ -19,14 +19,14 @@ import servChauffage from "@/assets/service-chauffage.jpg";
 import servVmc from "@/assets/service-vmc.jpg";
 import servGaz from "@/assets/service-gaz.jpg";
 
-export const Route = createFileRoute("/services")({
+export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
       { title: "Services Plomberie Chauffage VMC | Dicko BTP Paris Île-de-France" },
       {
         name: "description",
         content:
-          "Solutions techniques complètes pour vos projets de bâtiment en Île-de-France : plomberie, chauffage collectif, VMC et réseaux gaz.",
+          "Services CVC pour professionnels en Île-de-France : installation plomberie, chauffage collectif, VMC et réseaux gaz. Devis détaillé sous 24h ouvrées.",
       },
       { property: "og:title", content: "Services Plomberie Chauffage VMC | Dicko BTP" },
       {
@@ -105,6 +105,7 @@ const services = [
     conseilsTitle: "Notre conseil VMC",
     conseils: ["VMC en immeuble : est-ce obligatoire ?"],
     img: servVmc,
+    href: "/services/installation-vmc",
   },
   {
     num: "04",
@@ -233,9 +234,16 @@ function ServicesPage() {
                   ))}
                 </div>
 
-                <button type="button" onClick={openQuoteModal} className="btn-gold mt-8">
-                  Demander un devis <ArrowUpRight className="h-4 w-4" />
-                </button>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <button type="button" onClick={openQuoteModal} className="btn-gold">
+                    Demander un devis <ArrowUpRight className="h-4 w-4" />
+                  </button>
+                  {s.href ? (
+                    <Link to={s.href} className="btn-ghost">
+                      En savoir plus <ArrowUpRight className="h-4 w-4" />
+                    </Link>
+                  ) : null}
+                </div>
 
                 <div className="mt-8 border-t border-border pt-6">
                   <h3 className="text-sm font-semibold">{s.conseilsTitle}</h3>
