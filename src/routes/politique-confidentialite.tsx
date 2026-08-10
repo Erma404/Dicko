@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { absoluteUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/politique-confidentialite")({
   head: () => ({
@@ -6,7 +7,7 @@ export const Route = createFileRoute("/politique-confidentialite")({
       { title: "Politique de confidentialité | Dicko BTP" },
       { name: "robots", content: "noindex, follow" },
     ],
-    links: [{ rel: "canonical", href: "/politique-confidentialite" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/politique-confidentialite") }],
   }),
   component: PolitiqueConfidentialitePage,
 });

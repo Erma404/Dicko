@@ -15,6 +15,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { QuoteModal } from "@/components/QuoteModal";
 import { QuoteModalProvider } from "@/lib/quote-modal-context";
+import { DEFAULT_OG_IMAGE, SITE_NAME, jsonLdScriptProps, organizationJsonLd } from "@/lib/seo";
 
 
 function NotFoundComponent() {
@@ -96,7 +97,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Installation CVC pour bâtiments tertiaires, logements collectifs et infrastructures publiques en Île-de-France.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: SITE_NAME },
+      { property: "og:locale", content: "fr_FR" },
+      { property: "og:image", content: DEFAULT_OG_IMAGE },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: DEFAULT_OG_IMAGE },
+      { name: "geo.region", content: "FR-IDF" },
+      { name: "geo.placename", content: "Paris" },
     ],
     links: [
       {
@@ -139,6 +148,11 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <QuoteModalProvider>
+        {/* Fiche d'établissement (LocalBusiness/Plumber), présente sur
+            chaque page — sert aux moteurs de recherche locaux comme aux
+            moteurs génératifs (ChatGPT, Perplexity...) pour citer DICKO
+            avec les bonnes coordonnées et la bonne zone de service. */}
+        <script {...jsonLdScriptProps(organizationJsonLd())} />
         <div className="min-h-screen bg-background text-foreground">
           <SiteHeader />
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}

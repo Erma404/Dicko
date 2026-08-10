@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useQuoteModal } from "@/lib/quote-modal-context";
 import { blogPosts } from "@/data/blog-posts";
 import { blogImages } from "@/data/blog-images";
+import { SITE_URL } from "@/lib/seo";
 import {
   ArrowUpRight,
   Building2,
@@ -45,8 +46,10 @@ export const Route = createFileRoute("/")({
           "Votre partenaire technique en installation CVC pour bâtiments professionnels en Île-de-France.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: SITE_URL }],
   }),
   component: Index,
 });

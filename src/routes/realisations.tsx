@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Building2, CheckCircle2, Landmark, Users } from "lucide-react";
+import { absoluteUrl } from "@/lib/seo";
 
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
@@ -22,10 +23,10 @@ export const Route = createFileRoute("/realisations")({
           "Projets de plomberie, chauffage collectif, VMC et réseaux gaz réalisés par DICKO en Île-de-France.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/realisations" },
+      { property: "og:url", content: absoluteUrl("/realisations") },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/realisations" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/realisations") }],
   }),
   component: RealisationsPage,
 });

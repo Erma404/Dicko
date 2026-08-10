@@ -3,6 +3,7 @@ import { ArrowUpRight, Clock } from "lucide-react";
 
 import { blogPosts } from "@/data/blog-posts";
 import { blogImages } from "@/data/blog-images";
+import { absoluteUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/blog/")({
   head: () => ({
@@ -20,10 +21,10 @@ export const Route = createFileRoute("/blog/")({
           "Conseils et actualités plomberie & chauffage : réglementation, entretien, dépannage et bonnes pratiques à Paris.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/blog" },
+      { property: "og:url", content: absoluteUrl("/blog") },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/blog" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/blog") }],
   }),
   component: BlogPage,
 });

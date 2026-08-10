@@ -3,6 +3,7 @@ import { useState, type FormEvent } from "react";
 import { CheckCircle2, Clock, Mail, Minus, Phone, Plus } from "lucide-react";
 import { useHCaptcha } from "@/hooks/use-hcaptcha";
 import { submitToWeb3Forms } from "@/lib/web3forms";
+import { absoluteUrl, faqPageJsonLd, jsonLdScriptProps } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -20,10 +21,10 @@ export const Route = createFileRoute("/contact")({
           "Pour vos projets de plomberie, chauffage et VMC en Île-de-France, DICKO vous accompagne de l'étude à la réalisation.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: absoluteUrl("/contact") },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/contact") }],
   }),
   component: ContactPage,
 });
@@ -116,6 +117,7 @@ function ContactPage() {
 
   return (
     <main className="bg-background text-foreground">
+      <script {...jsonLdScriptProps(faqPageJsonLd(faq))} />
       {/* HERO */}
       <section className="px-3 pt-3 md:px-5">
         <div className="band-ink dicko-watermark relative overflow-hidden rounded-[2rem] px-6 py-20 md:rounded-[2.5rem] md:px-12 lg:py-28">

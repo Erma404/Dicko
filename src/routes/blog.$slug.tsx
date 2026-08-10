@@ -5,6 +5,13 @@ import { ArrowUpRight, Clock, Mail, Minus, Phone, Plus } from "lucide-react";
 import { blogPosts } from "@/data/blog-posts";
 import { blogImages } from "@/data/blog-images";
 import { useQuoteModal } from "@/lib/quote-modal-context";
+import {
+  absoluteUrl,
+  articleJsonLd,
+  breadcrumbJsonLd,
+  faqPageJsonLd,
+  jsonLdScriptProps,
+} from "@/lib/seo";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
@@ -15,6 +22,7 @@ export const Route = createFileRoute("/blog/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) return {};
     const post = loaderData;
+    const image = absoluteUrl(blogImages[post.slug] ?? "");
     return {
       meta: [
         { title: `${post.title} | Dicko BTP` },
@@ -22,10 +30,14 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "og:type", content: "article" },
         { property: "og:title", content: post.title },
         { property: "og:description", content: post.description },
-        { property: "og:url", content: `/blog/${post.slug}` },
+        { property: "og:url", content: absoluteUrl(`/blog/${post.slug}`) },
+        { property: "og:image", content: image },
+        { property: "article:published_time", content: post.dateISO },
+        { property: "article:section", content: post.category },
         { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:image", content: image },
       ],
-      links: [{ rel: "canonical", href: `/blog/${post.slug}` }],
+      links: [{ rel: "canonical", href: absoluteUrl(`/blog/${post.slug}`) }],
     };
   },
   component: BlogPostPage,
@@ -49,6 +61,27 @@ function BlogPostPage() {
 
   return (
     <main className="bg-background text-foreground">
+      <script
+        {...jsonLdScriptProps(
+          articleJsonLd({
+            slug: post.slug,
+            title: post.title,
+            description: post.description,
+            dateISO: post.dateISO,
+            image: absoluteUrl(blogImages[post.slug] ?? ""),
+          }),
+        )}
+      />
+      <script
+        {...jsonLdScriptProps(
+          breadcrumbJsonLd([
+            { name: "Accueil", path: "/" },
+            { name: "Blog", path: "/blog" },
+            { name: post.title, path: `/blog/${post.slug}` },
+          ]),
+        )}
+      />
+      {post.faqs.length > 0 && <script {...jsonLdScriptProps(faqPageJsonLd(post.faqs))} />}
       {/* HERO */}
       <section className="px-3 pt-3 md:px-5">
         <div className="band-ink relative overflow-hidden rounded-[2rem] md:rounded-[2.5rem]">

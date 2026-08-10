@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuoteModal } from "@/lib/quote-modal-context";
+import { absoluteUrl } from "@/lib/seo";
 import {
   ArrowUpRight,
   CheckCircle2,
@@ -34,10 +35,10 @@ export const Route = createFileRoute("/services")({
           "De l'étude à la réalisation, DICKO vous accompagne à chaque étape de vos projets CVC en Île-de-France.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/services" },
+      { property: "og:url", content: absoluteUrl("/services") },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/services") }],
   }),
   component: ServicesPage,
 });

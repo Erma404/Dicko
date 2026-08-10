@@ -1,0 +1,29 @@
+# DICKO BTP
+
+> DICKO BTP est une entreprise de plomberie, chauffage collectif, VMC et installation gaz, 100% B2B, basée à Paris (25 rue Archereau, 75019) et intervenant sur les 8 départements d'Île-de-France (Paris, Hauts-de-Seine, Seine-Saint-Denis, Val-de-Marne, Seine-et-Marne, Yvelines, Essonne, Val-d'Oise). Elle réalise des installations et de la maintenance CVC pour bâtiments tertiaires, logements collectifs et infrastructures publiques — pas de clientèle particuliers.
+
+Coordonnées : 06 15 03 53 00 (WhatsApp) — contact@dicko-pvc.fr — https://dicko-chauffage.com/contact
+
+## Pages principales
+
+- [Accueil](https://dicko-chauffage.com/) : présentation de l'entreprise, chiffres clés, services et réalisations.
+- [Services](https://dicko-chauffage.com/services) : détail des prestations (plomberie, chauffage collectif, VMC, gaz).
+- [À propos](https://dicko-chauffage.com/a-propos) : historique, équipe, zone d'intervention.
+- [Réalisations](https://dicko-chauffage.com/realisations) : projets menés en Île-de-France.
+- [Blog](https://dicko-chauffage.com/blog) : articles techniques et réglementaires sur la plomberie, le chauffage et la VMC à Paris.
+- [Contact](https://dicko-chauffage.com/contact) : formulaire de devis et FAQ.
+
+## Articles de blog
+
+- [Chaudière qui ne chauffe plus : les 7 causes les plus fréquentes à Paris](https://dicko-chauffage.com/blog/chaudiere-ne-chauffe-plus-causes-paris)
+- [Chauffage collectif en copropriété : obligations du syndic et calendrier d'entretien](https://dicko-chauffage.com/blog/chauffage-collectif-copropriete-obligations-syndic)
+- [Chauffagiste ou plombier : qui appeler selon votre panne ?](https://dicko-chauffage.com/blog/chauffagiste-ou-plombier-qui-appeler)
+- [Colonne montante qui fuit en immeuble haussmannien](https://dicko-chauffage.com/blog/colonne-montante-fuit-immeuble-haussmannien)
+- [Comment choisir sa chaudière à condensation à Paris](https://dicko-chauffage.com/blog/comment-choisir-chaudiere-condensation-paris)
+- [Dépannage plomberie à Paris : urgence](https://dicko-chauffage.com/blog/depannage-plomberie-paris-urgence)
+- [Détecteur de monoxyde de carbone obligatoire à Paris : ce que dit la loi](https://dicko-chauffage.com/blog/detecteur-monoxyde-carbone-obligatoire-paris)
+- [Entretien chaudière gaz obligatoire à Paris](https://dicko-chauffage.com/blog/entretien-chaudiere-gaz-obligatoire-paris)
+- [Fuite d'eau en appartement à Paris : que faire](https://dicko-chauffage.com/blog/fuite-eau-appartement-paris)
+- [Prix d'installation d'une chaudière gaz à Paris](https://dicko-chauffage.com/blog/prix-installation-chaudiere-gaz-paris)
+- [VMC obligatoire en immeuble : réglementation](https://dicko-chauffage.com/blog/vmc-obligatoire-immeuble-reglementation)
+- [WC ou canalisation bouchée : que faire](https://dicko-chauffage.com/blog/wc-canalisation-bouchee-que-faire)

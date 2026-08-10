@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { absoluteUrl } from "@/lib/seo";
 import {
   ArrowUpRight,
   Building2,
@@ -27,10 +28,10 @@ export const Route = createFileRoute("/a-propos")({
           "DICKO, entreprise spécialisée en plomberie, chauffage et VMC pour bâtiments tertiaires, logements collectifs et infrastructures publiques.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/a-propos" },
+      { property: "og:url", content: absoluteUrl("/a-propos") },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/a-propos" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/a-propos") }],
   }),
   component: AProposPage,
 });

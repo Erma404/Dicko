@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { absoluteUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/mentions-legales")({
   head: () => ({
@@ -6,7 +7,7 @@ export const Route = createFileRoute("/mentions-legales")({
       { title: "Mentions légales | Dicko BTP" },
       { name: "robots", content: "noindex, follow" },
     ],
-    links: [{ rel: "canonical", href: "/mentions-legales" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/mentions-legales") }],
   }),
   component: MentionsLegalesPage,
 });

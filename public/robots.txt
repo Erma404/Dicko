@@ -10,5 +10,24 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+# Moteurs génératifs / IA (GEO) — accès explicite pour que DICKO puisse
+# être cité dans ChatGPT, Perplexity, Copilot, Claude...
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 User-agent: *
 Allow: /
+
+Sitemap: https://dicko-chauffage.com/sitemap.xml
