@@ -16,6 +16,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { QuoteModal } from "@/components/QuoteModal";
 import { QuoteModalProvider } from "@/lib/quote-modal-context";
 import { DEFAULT_OG_IMAGE, SITE_NAME, jsonLdScriptProps, organizationJsonLd } from "@/lib/seo";
+import { CookieConsentHead } from "@/components/CookieConsent";
 
 
 function NotFoundComponent() {
@@ -137,6 +138,7 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="fr">
       <head>
         <HeadContent />
+        <CookieConsentHead />
       </head>
       <body>
         {children}
