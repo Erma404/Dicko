@@ -653,40 +653,43 @@ function Index() {
 
 
       {/* FOOTER */}
-      <footer className="border-t border-border pt-16">
-        <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-          <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-            <img
-              src={dickoLogo.url}
-              alt="Logo DICKO"
-              width={500}
-              height={500}
-              loading="lazy"
-              className="h-20 w-20 object-contain md:h-24 md:w-24"
-            />
-            <div className="max-w-sm text-sm text-muted-foreground">
-              Plomberie · Chauffage · VMC · Gaz — Installations CVC pour les professionnels
-              d'Île-de-France.
+      <footer className="px-3 pb-3 md:px-5 md:pb-5">
+        <div className="band-ink dicko-pattern relative overflow-hidden rounded-[2rem] px-6 pt-16 md:rounded-[2.5rem] md:px-12">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+              <img
+                src={dickoLogo.url}
+                alt="Logo DICKO"
+                width={500}
+                height={500}
+                loading="lazy"
+                className="h-20 w-20 object-contain md:h-24 md:w-24"
+              />
+              <div className="max-w-sm text-sm text-muted-foreground">
+                Plomberie · Chauffage · VMC · Gaz — Installations CVC pour les professionnels
+                d'Île-de-France.
+              </div>
+              <a href="#contact" className="btn-gold">
+                Demander un devis <ArrowUpRight className="h-4 w-4" />
+              </a>
             </div>
-            <a href="#contact" className="btn-gold">
-              Demander un devis <ArrowUpRight className="h-4 w-4" />
-            </a>
-          </div>
 
-          <div
-            aria-hidden
-            className="mt-12 font-display leading-[0.8] font-bold tracking-[0.06em] text-foreground/10 select-none"
-            style={{ fontSize: "clamp(4.5rem, 22vw, 20rem)" }}
-          >
-            DICKO
-          </div>
+            <div
+              aria-hidden
+              className="mt-12 font-display leading-[0.8] font-bold tracking-[0.06em] text-foreground/12 select-none"
+              style={{ fontSize: "clamp(4.5rem, 21vw, 19rem)" }}
+            >
+              DICKO
+            </div>
 
-          <div className="flex flex-col items-center justify-between gap-3 border-t border-border py-6 text-xs text-muted-foreground md:flex-row">
-            <span>© {new Date().getFullYear()} DICKO — Tous droits réservés</span>
-            <span className="tracking-[0.2em] uppercase">Paris · Île-de-France</span>
+            <div className="flex flex-col items-center justify-between gap-3 border-t border-border py-6 text-xs text-muted-foreground md:flex-row">
+              <span>© {new Date().getFullYear()} DICKO — Tous droits réservés</span>
+              <span className="tracking-[0.2em] uppercase">Paris · Île-de-France</span>
+            </div>
           </div>
         </div>
       </footer>
+
 
     </div>
   );
