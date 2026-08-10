@@ -408,46 +408,46 @@ function Index() {
             </p>
           </div>
 
-          <div className="mt-16 flex flex-col">
+          <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2">
             {services.map((s) => (
               <article
                 key={s.num}
-                className="group grid grid-cols-1 items-center gap-8 border-t border-border py-10 lg:grid-cols-[80px_1.2fr_1fr_260px] lg:gap-10"
+                className="group overflow-hidden rounded-[1.75rem] bg-card p-3 transition-transform duration-500 hover:-translate-y-1"
               >
-                <div className="index-num text-3xl transition-colors group-hover:text-gold">
-                  {s.num}
-                </div>
-                <div>
-                  <div className="flex items-center gap-3">
-                    <s.icon className="h-5 w-5 text-gold" strokeWidth={1.5} />
-                    <h3 className="text-xl sm:text-2xl">{s.title}</h3>
-                  </div>
-                  <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
-                    {s.desc}
-                  </p>
-                </div>
-                <ul className="grid gap-2">
-                  {s.items.map((it) => (
-                    <li key={it} className="flex items-start gap-3 text-sm text-muted-foreground">
-                      <span className="mt-2 h-1 w-3 shrink-0 bg-gold/70" />
-                      {it}
-                    </li>
-                  ))}
-                </ul>
-                <div className="overflow-hidden rounded-2xl">
+                <div className="overflow-hidden rounded-[1.35rem]">
                   <img
                     src={s.img}
                     alt={s.alt}
-                    width={1000}
+                    width={1008}
                     height={1200}
                     loading="lazy"
-                    className="h-44 w-full object-cover transition-transform duration-700 group-hover:scale-105 lg:h-36"
+                    className="h-60 w-full object-cover transition-transform duration-[900ms] group-hover:scale-[1.05] lg:h-72"
                   />
+                </div>
+                <div className="px-5 pt-6 pb-5">
+                  <div className="flex items-start justify-between gap-4">
+                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gold text-primary-foreground">
+                      <s.icon className="h-5 w-5" strokeWidth={1.6} />
+                    </span>
+                    <span className="index-num text-sm">{s.num}</span>
+                  </div>
+                  <h3 className="mt-5 text-xl transition-colors group-hover:text-gold sm:text-2xl">
+                    {s.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+                  <ul className="mt-5 grid gap-2 sm:grid-cols-2">
+                    {s.items.map((it) => (
+                      <li key={it} className="flex items-start gap-3 text-sm text-muted-foreground">
+                        <span className="mt-2 h-1 w-3 shrink-0 rounded-full bg-gold" />
+                        {it}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </article>
             ))}
-            <div className="border-t border-border" />
           </div>
+
 
           <div className="mt-14 flex flex-wrap items-center gap-x-4 gap-y-3">
             <span className="eyebrow">Nous intervenons dans toute l'Île-de-France :</span>
