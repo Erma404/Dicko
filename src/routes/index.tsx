@@ -640,22 +640,79 @@ function Index() {
       <footer className="px-3 pb-3 md:px-5 md:pb-5">
         <div className="band-ink dicko-pattern relative overflow-hidden rounded-[2rem] px-6 pt-16 md:rounded-[2.5rem] md:px-12">
           <div className="mx-auto max-w-[1400px]">
-            <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-              <img
-                src={dickoLogo.url}
-                alt="Logo DICKO"
-                width={500}
-                height={500}
-                loading="lazy"
-                className="h-20 w-20 object-contain md:h-24 md:w-24"
-              />
-              <div className="max-w-sm text-sm text-muted-foreground">
-                Plomberie · Chauffage · VMC · Gaz — Installations CVC pour les professionnels
-                d'Île-de-France.
+            <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+              <div>
+                <div className="flex items-center gap-3">
+                  <img
+                    src={dickoLogo.url}
+                    alt="Logo DICKO — plomberie, chauffage et VMC"
+                    width={500}
+                    height={500}
+                    loading="lazy"
+                    className="h-12 w-12 object-contain"
+                  />
+                  <div>
+                    <div className="font-display text-2xl font-bold tracking-[0.08em]">DICKO</div>
+                    <div className="text-[10px] tracking-[0.28em] text-muted-foreground uppercase">
+                      Plomberie · Chauffage · VMC
+                    </div>
+                  </div>
+                </div>
+                <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
+                  Entreprise spécialisée en travaux d'installation d'eau, gaz, chauffage et
+                  ventilation pour bâtiments professionnels en Île-de-France.
+                </p>
+                <address className="mt-5 text-xs tracking-[0.14em] text-muted-foreground uppercase not-italic">
+                  25 rue Archereau, 75019 Paris
+                </address>
               </div>
-              <a href="#contact" className="btn-gold">
-                Demander un devis <ArrowUpRight className="h-4 w-4" />
-              </a>
+
+              <nav aria-label="Navigation du site">
+                <h2 className="text-sm font-semibold">Navigation</h2>
+                <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+                  {[
+                    ["Accueil", "#top"],
+                    ["À propos", "#apropos"],
+                    ["Services", "#services"],
+                    ["Réalisations", "#realisations"],
+                    ["Blog", "#blog"],
+                    ["Contact", "#contact"],
+                  ].map(([label, href]) => (
+                    <li key={label}>
+                      <a href={href} className="transition-colors hover:text-foreground">
+                        {label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+
+              <div>
+                <h2 className="text-sm font-semibold">Nos Services</h2>
+                <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+                  {["Plomberie", "Chauffage", "VMC", "Gaz"].map((s) => (
+                    <li key={s}>
+                      <a href="#services" className="transition-colors hover:text-foreground">
+                        {s}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h2 className="text-sm font-semibold">Zones</h2>
+                <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+                  {[
+                    "Paris (75)",
+                    "Hauts-de-Seine (92)",
+                    "Seine-Saint-Denis (93)",
+                    "Val-de-Marne (94)",
+                  ].map((z) => (
+                    <li key={z}>{z}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             <div
@@ -667,11 +724,20 @@ function Index() {
             </div>
 
             <div className="flex flex-col items-center justify-between gap-3 border-t border-border py-6 text-xs text-muted-foreground md:flex-row">
-              <span>© {new Date().getFullYear()} DICKO — Tous droits réservés</span>
-              <span className="tracking-[0.2em] uppercase">Paris · Île-de-France</span>
+              <span>© {new Date().getFullYear()} DICKO. Tous droits réservés.</span>
+              <div className="flex flex-wrap items-center gap-6">
+                <a href="#contact" className="transition-colors hover:text-foreground">
+                  Mentions légales
+                </a>
+                <a href="#contact" className="transition-colors hover:text-foreground">
+                  Politique de confidentialité
+                </a>
+                <span>Réalisé par Ernestine</span>
+              </div>
             </div>
           </div>
         </div>
+
       </footer>
 
 
