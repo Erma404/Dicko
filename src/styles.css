@@ -295,7 +295,7 @@
     background-image: repeating-linear-gradient(
       90deg,
       transparent 0 38px,
-      color-mix(in oklab, var(--foreground) 6%, transparent) 38px 68px
+      color-mix(in oklab, var(--foreground) 4%, transparent) 44px 78px
     );
     -webkit-mask-image: linear-gradient(to bottom, transparent, black 22%, black 78%, transparent);
     mask-image: linear-gradient(to bottom, transparent, black 22%, black 78%, transparent);
