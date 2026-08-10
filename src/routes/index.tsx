@@ -268,7 +268,7 @@ function Index() {
 
       {/* HERO */}
       <section id="top" className="px-3 pt-20 md:px-5">
-        <div className="band-ink dicko-pattern-gold relative isolate overflow-hidden rounded-[2rem] md:rounded-[2.5rem]">
+        <div className="band-ink dicko-pattern relative isolate overflow-hidden rounded-[2rem] md:rounded-[2.5rem]">
           <img
             src={heroBright}
             alt="Technicien DICKO relevant une installation CVC en toiture"
@@ -626,7 +626,7 @@ function Index() {
 
       {/* CTA */}
       <section id="contact" className="px-3 py-6 md:px-5">
-        <div className="band-ink dicko-pattern-gold relative isolate overflow-hidden rounded-[2rem] md:rounded-[2.5rem]">
+        <div className="band-ink dicko-pattern relative isolate overflow-hidden rounded-[2rem] md:rounded-[2.5rem]">
           <img
             src={aboutImg}
             alt="Équipe DICKO sur chantier en Île-de-France"
