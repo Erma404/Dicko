@@ -296,9 +296,6 @@ function Index() {
                 <a href="#contact" className="btn-gold">
                   Demander un devis <ArrowUpRight className="h-4 w-4" />
                 </a>
-                <a href="#realisations" className="btn-ghost">
-                  Nos réalisations
-                </a>
               </div>
             </div>
           </div>
