@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 
 import dickoLogo from "@/assets/dicko-logo.png.asset.json";
-import heroPortrait from "@/assets/hero-portrait.jpg";
+import heroBright from "@/assets/hero-bright.jpg";
 import aboutImg from "@/assets/about-team.jpg";
 import servPlomberie from "@/assets/service-plomberie.jpg";
 import servChauffage from "@/assets/service-chauffage.jpg";
@@ -270,14 +270,15 @@ function Index() {
       <section id="top" className="px-3 pt-20 md:px-5">
         <div className="band-ink dicko-pattern-gold relative isolate overflow-hidden rounded-[2rem] md:rounded-[2.5rem]">
           <img
-            src={heroPortrait}
-            alt="Technicien plombier chauffagiste DICKO en chaufferie"
-            width={1408}
-            height={1600}
-            className="absolute inset-0 h-full w-full object-cover object-[70%_25%]"
+            src={heroBright}
+            alt="Technicien DICKO relevant une installation CVC en toiture"
+            width={1600}
+            height={1104}
+            className="absolute inset-0 h-full w-full object-cover object-[62%_35%]"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-transparent to-background/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/45 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/10" />
+
 
           <div className="relative mx-auto flex min-h-[560px] max-w-[1400px] flex-col justify-end px-6 py-14 md:px-12 lg:min-h-[720px] lg:py-20">
             <div className="rise max-w-3xl">
