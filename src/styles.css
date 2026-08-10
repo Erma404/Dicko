@@ -281,3 +281,46 @@
     transform: none;
   }
 }
+
+/* Motif DICKO — colonnes techniques arrondies, en fond des blocs sombres */
+@utility dicko-pattern {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent 0 38px,
+      color-mix(in oklab, var(--foreground) 6%, transparent) 38px 68px
+    );
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 22%, black 78%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 22%, black 78%, transparent);
+    border-radius: inherit;
+    pointer-events: none;
+  }
+}
+
+@utility dicko-pattern-gold {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent 0 38px,
+      color-mix(in oklab, var(--gold) 14%, transparent) 38px 68px
+    );
+    -webkit-mask-image: radial-gradient(120% 90% at 100% 0%, black, transparent 70%);
+    mask-image: radial-gradient(120% 90% at 100% 0%, black, transparent 70%);
+    border-radius: inherit;
+    pointer-events: none;
+  }
+}
