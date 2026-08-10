@@ -17,6 +17,7 @@ import {
   Zap,
 } from "lucide-react";
 
+import dickoLogo from "@/assets/dicko-logo.png.asset.json";
 import heroPortrait from "@/assets/hero-portrait.jpg";
 import aboutImg from "@/assets/about-team.jpg";
 import servPlomberie from "@/assets/service-plomberie.jpg";
