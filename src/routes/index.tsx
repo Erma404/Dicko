@@ -343,7 +343,7 @@ function Index() {
 
 
       {/* À PROPOS */}
-      <section id="apropos" className="band-cream relative py-24 lg:py-32">
+      <section id="apropos" className="band-cream dicko-watermark relative isolate py-24 lg:py-32">
         <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-16 px-5 md:px-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="relative">
             <img
@@ -388,7 +388,7 @@ function Index() {
               ].map(([Icon, title, desc]) => {
                 const I = Icon as typeof Building2;
                 return (
-                  <div key={title as string} className="rounded-2xl bg-card p-6">
+                  <div key={title as string} className="rounded-2xl border border-border bg-card p-6">
                     <I className="h-5 w-5 text-gold" strokeWidth={1.5} />
                     <h3 className="mt-4 text-base">{title as string}</h3>
                     <p className="mt-1 text-sm text-muted-foreground">{desc as string}</p>
@@ -405,7 +405,7 @@ function Index() {
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="border-b border-border py-24 lg:py-32">
+      <section id="services" className="py-24 lg:py-32">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
           <SectionLabel index="02">Nos Expertises</SectionLabel>
           <div className="mt-6 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
@@ -421,7 +421,7 @@ function Index() {
             {services.map((s) => (
               <article
                 key={s.num}
-                className="group overflow-hidden rounded-[1.75rem] bg-card p-3 transition-transform duration-500 hover:-translate-y-1"
+                className="group overflow-hidden rounded-[1.75rem] border border-border bg-card p-3 shadow-[0_1px_2px_rgba(20,20,25,0.04)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_28px_60px_-32px_rgba(20,20,25,0.35)]"
               >
                 <div className="overflow-hidden rounded-[1.35rem]">
                   <img
@@ -504,7 +504,7 @@ function Index() {
 
 
       {/* RÉALISATIONS */}
-      <section id="realisations" className="border-b border-border py-24 lg:py-32">
+      <section id="realisations" className="py-24 lg:py-32">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
           <SectionLabel index="04">Nos Réalisations</SectionLabel>
           <div className="mt-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
@@ -565,7 +565,7 @@ function Index() {
 
           <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3">
             {posts.map((p) => (
-              <article key={p.title} className="group flex flex-col rounded-2xl bg-card p-8">
+              <article key={p.title} className="group flex flex-col rounded-[1.5rem] border border-border bg-card p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_50px_-30px_rgba(20,20,25,0.35)]">
                 <div className="flex items-center gap-3 text-[11px] tracking-[0.16em] uppercase">
                   <span className="text-gold">{p.cat}</span>
                   <span className="text-muted-foreground">{p.date}</span>
@@ -591,7 +591,7 @@ function Index() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="border-b border-border py-24 lg:py-32">
+      <section id="faq" className="py-24 lg:py-32">
         <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-14 px-5 md:px-10 lg:grid-cols-[0.6fr_1.4fr]">
           <div>
             <SectionLabel index="06">FAQ</SectionLabel>
