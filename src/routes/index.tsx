@@ -114,16 +114,6 @@ const services = [
   },
 ];
 
-const departements = [
-  "Paris",
-  "Hauts-de-Seine",
-  "Seine-Saint-Denis",
-  "Val-de-Marne",
-  "Yvelines",
-  "Essonne",
-  "Val-d'Oise",
-  "Seine-et-Marne",
-];
 
 const whyUs = [
   {
