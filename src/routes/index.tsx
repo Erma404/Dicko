@@ -17,7 +17,7 @@ import {
   Zap,
 } from "lucide-react";
 
-import heroImg from "@/assets/hero-cvc.jpg";
+import heroPortrait from "@/assets/hero-portrait.jpg";
 import aboutImg from "@/assets/about-team.jpg";
 import servPlomberie from "@/assets/service-plomberie.jpg";
 import servChauffage from "@/assets/service-chauffage.jpg";
@@ -258,86 +258,44 @@ function Index() {
       </header>
 
       {/* HERO */}
-      <section id="top" className="relative isolate overflow-hidden pt-16">
-        <div className="absolute inset-0 -z-20">
+      <section id="top" className="px-3 pt-20 md:px-5">
+        <div className="dicko-pattern-gold relative isolate overflow-hidden rounded-[2rem] bg-card md:rounded-[2.5rem]">
           <img
-            src={heroImg}
-            alt="Techniciens CVC au travail"
-            width={1600}
-            height={1104}
-            className="h-full w-full object-cover opacity-40"
+            src={heroPortrait}
+            alt="Technicien plombier chauffagiste DICKO en chaufferie"
+            width={1408}
+            height={1600}
+            className="absolute inset-0 h-full w-full object-cover object-[70%_25%]"
           />
-        </div>
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/70 via-background/85 to-background" />
-        <div className="blueprint absolute inset-0 -z-10 opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-transparent to-background/40" />
 
-        <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-14 px-5 pt-20 pb-16 md:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:pt-32 lg:pb-24">
-          <div className="rise">
-            <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-border px-4 py-2">
-              <span className="h-1.5 w-1.5 animate-pulse bg-gold" />
-              <span className="eyebrow">Entreprise B2B Île-de-France</span>
+          <div className="relative mx-auto flex min-h-[560px] max-w-[1400px] flex-col justify-end px-6 py-14 md:px-12 lg:min-h-[720px] lg:py-20">
+            <div className="rise max-w-3xl">
+              <h1 className="text-[2.4rem] leading-[0.98] font-bold tracking-tight sm:text-6xl lg:text-[4.6rem]">
+                Plombier chauffagiste
+                <br />
+                <span className="text-gold">au service des pros</span>
+              </h1>
+              <p className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                Depuis 15 ans, nos équipes installent la plomberie, le chauffage collectif et la VMC
+                des bâtiments d'Île-de-France. Des femmes et des hommes de terrain, pas des
+                promesses.
+              </p>
+              <div className="mt-9 flex flex-wrap items-center gap-4">
+                <a href="#contact" className="btn-gold">
+                  Demander un devis <ArrowUpRight className="h-4 w-4" />
+                </a>
+                <a href="#realisations" className="btn-ghost">
+                  Nos réalisations
+                </a>
+              </div>
             </div>
-            <h1 className="max-w-3xl text-[2.6rem] leading-[0.98] font-bold tracking-tight sm:text-6xl lg:text-[5rem]">
-              Plombier
-              <br />
-              Chauffagiste{" "}
-              <span className="text-gold">
-                Paris
-                <br />& Île-de-France
-              </span>
-            </h1>
-            <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              Votre partenaire technique en installation CVC pour bâtiments professionnels en
-              Île-de-France.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a href="#contact" className="btn-gold">
-                Demander un devis <ArrowUpRight className="h-4 w-4" />
-              </a>
-              <a href="#realisations" className="btn-ghost">
-                Nos réalisations
-              </a>
-            </div>
-            <div className="mt-12 flex flex-wrap gap-x-10 gap-y-3 text-sm text-muted-foreground">
-              <span className="flex items-center gap-2">
-                <span className="h-px w-6 bg-gold" />
-                15+ ans d'expérience
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="h-px w-6 bg-gold" />
-                200+ projets réalisés
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="h-px w-6 bg-gold" />
-                Intervention IDF
-              </span>
-            </div>
-          </div>
-
-          {/* Technical spec card */}
-          <div className="corner-ticks panel hidden self-end p-8 lg:block">
-            <p className="eyebrow mb-6">Lots techniques</p>
-            <ul className="divide-y divide-border">
-              {[
-                ["Plomberie", "Réseaux & colonnes"],
-                ["Chauffage", "Chaufferie collective"],
-                ["VMC", "Simple / double flux"],
-                ["Gaz", "Mise en conformité"],
-              ].map(([k, v], i) => (
-                <li key={k} className="flex items-center justify-between py-4">
-                  <span className="flex items-center gap-4">
-                    <span className="index-num text-xs">0{i + 1}</span>
-                    <span className="font-display text-base font-semibold">{k}</span>
-                  </span>
-                  <span className="text-xs text-muted-foreground">{v}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
 
         {/* Marquee */}
-        <div className="overflow-hidden border-y border-border bg-secondary/40 py-4">
+        <div className="mt-3 overflow-hidden rounded-full border border-border bg-secondary/60 py-3.5">
           <div className="marquee-track">
             {[0, 1].map((dup) => (
               <div key={dup} className="flex shrink-0 items-center">
@@ -347,7 +305,7 @@ function Index() {
                     className="flex items-center gap-6 px-6 font-display text-sm tracking-[0.18em] whitespace-nowrap text-muted-foreground uppercase"
                   >
                     {d}
-                    <span className="h-1 w-1 bg-gold" />
+                    <span className="h-1 w-1 rounded-full bg-gold" />
                   </span>
                 ))}
               </div>
@@ -357,23 +315,23 @@ function Index() {
       </section>
 
       {/* STATS */}
-      <section className="band-cream pt-20 lg:pt-28">
-        <div className="mx-auto grid max-w-[1400px] grid-cols-2 px-5 md:px-10 lg:grid-cols-4">
-          {stats.map((s, i) => (
-            <div
-              key={s.label}
-              className={`border-border py-12 lg:py-16 ${i % 2 === 1 ? "border-l pl-6" : "pr-6"} ${i < 2 ? "border-b lg:border-b-0" : ""} ${i === 2 ? "lg:border-l lg:pl-6" : ""} ${i === 3 ? "lg:pl-6" : ""}`}
-            >
-              <div className="font-display text-4xl leading-none font-bold text-gold sm:text-5xl lg:text-6xl">
-                {s.value}
+      <section className="px-3 pt-3 md:px-5">
+        <div className="dicko-pattern relative overflow-hidden rounded-[2rem] bg-card px-6 py-12 md:px-12 lg:py-16">
+          <div className="mx-auto grid max-w-[1400px] grid-cols-2 gap-y-10 lg:grid-cols-4">
+            {stats.map((s) => (
+              <div key={s.label} className="px-2">
+                <div className="font-display text-4xl leading-none font-bold text-gold sm:text-5xl lg:text-6xl">
+                  {s.value}
+                </div>
+                <div className="mt-3 text-xs tracking-[0.16em] text-muted-foreground uppercase">
+                  {s.label}
+                </div>
               </div>
-              <div className="mt-3 text-xs tracking-[0.16em] text-muted-foreground uppercase">
-                {s.label}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
+
 
       {/* À PROPOS */}
       <section id="apropos" className="band-cream relative py-24 lg:py-32">
@@ -450,46 +408,46 @@ function Index() {
             </p>
           </div>
 
-          <div className="mt-16 flex flex-col">
+          <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2">
             {services.map((s) => (
               <article
                 key={s.num}
-                className="group grid grid-cols-1 items-center gap-8 border-t border-border py-10 lg:grid-cols-[80px_1.2fr_1fr_260px] lg:gap-10"
+                className="group overflow-hidden rounded-[1.75rem] bg-card p-3 transition-transform duration-500 hover:-translate-y-1"
               >
-                <div className="index-num text-3xl transition-colors group-hover:text-gold">
-                  {s.num}
-                </div>
-                <div>
-                  <div className="flex items-center gap-3">
-                    <s.icon className="h-5 w-5 text-gold" strokeWidth={1.5} />
-                    <h3 className="text-xl sm:text-2xl">{s.title}</h3>
-                  </div>
-                  <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
-                    {s.desc}
-                  </p>
-                </div>
-                <ul className="grid gap-2">
-                  {s.items.map((it) => (
-                    <li key={it} className="flex items-start gap-3 text-sm text-muted-foreground">
-                      <span className="mt-2 h-1 w-3 shrink-0 bg-gold/70" />
-                      {it}
-                    </li>
-                  ))}
-                </ul>
-                <div className="overflow-hidden rounded-2xl">
+                <div className="overflow-hidden rounded-[1.35rem]">
                   <img
                     src={s.img}
                     alt={s.alt}
-                    width={1000}
+                    width={1008}
                     height={1200}
                     loading="lazy"
-                    className="h-44 w-full object-cover transition-transform duration-700 group-hover:scale-105 lg:h-36"
+                    className="h-60 w-full object-cover transition-transform duration-[900ms] group-hover:scale-[1.05] lg:h-72"
                   />
+                </div>
+                <div className="px-5 pt-6 pb-5">
+                  <div className="flex items-start justify-between gap-4">
+                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gold text-primary-foreground">
+                      <s.icon className="h-5 w-5" strokeWidth={1.6} />
+                    </span>
+                    <span className="index-num text-sm">{s.num}</span>
+                  </div>
+                  <h3 className="mt-5 text-xl transition-colors group-hover:text-gold sm:text-2xl">
+                    {s.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+                  <ul className="mt-5 grid gap-2 sm:grid-cols-2">
+                    {s.items.map((it) => (
+                      <li key={it} className="flex items-start gap-3 text-sm text-muted-foreground">
+                        <span className="mt-2 h-1 w-3 shrink-0 rounded-full bg-gold" />
+                        {it}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </article>
             ))}
-            <div className="border-t border-border" />
           </div>
+
 
           <div className="mt-14 flex flex-wrap items-center gap-x-4 gap-y-3">
             <span className="eyebrow">Nous intervenons dans toute l'Île-de-France :</span>
@@ -506,31 +464,35 @@ function Index() {
       </section>
 
       {/* POURQUOI NOUS */}
-      <section className="relative border-b border-border py-24 lg:py-32">
-        <div className="blueprint pointer-events-none absolute inset-0 opacity-40" />
-        <div className="relative mx-auto max-w-[1400px] px-5 md:px-10">
-          <SectionLabel index="03">Pourquoi nous choisir</SectionLabel>
-          <div className="mt-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
-            <h2 className="text-3xl sm:text-5xl">Pourquoi choisir DICKO ?</h2>
-            <p className="text-sm text-muted-foreground">
-              Votre partenaire CVC de confiance en Île-de-France
-            </p>
-          </div>
+      <section className="px-3 py-6 md:px-5">
+        <div className="dicko-pattern relative overflow-hidden rounded-[2rem] bg-card px-6 py-20 md:px-12 lg:py-28">
+          <div className="relative mx-auto max-w-[1400px]">
+            <SectionLabel index="03">Pourquoi nous choisir</SectionLabel>
+            <div className="mt-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
+              <h2 className="text-3xl sm:text-5xl">Pourquoi choisir DICKO ?</h2>
+              <p className="text-sm text-muted-foreground">
+                Des équipes fidèles, des chefs de chantier qui connaissent vos bâtiments
+              </p>
+            </div>
 
-          <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {whyUs.map((w, i) => (
-              <div key={w.title} className="panel p-8">
-                <div className="flex items-start justify-between">
-                  <w.icon className="h-6 w-6 text-gold" strokeWidth={1.4} />
-                  <span className="index-num text-xs">0{i + 1}</span>
+            <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {whyUs.map((w, i) => (
+                <div key={w.title} className="panel rounded-[1.5rem] p-8">
+                  <div className="flex items-start justify-between">
+                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gold/15 text-gold">
+                      <w.icon className="h-5 w-5" strokeWidth={1.5} />
+                    </span>
+                    <span className="index-num text-xs">0{i + 1}</span>
+                  </div>
+                  <h3 className="mt-8 text-lg leading-snug">{w.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{w.desc}</p>
                 </div>
-                <h3 className="mt-8 text-lg leading-snug">{w.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{w.desc}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
+
 
       {/* RÉALISATIONS */}
       <section id="realisations" className="border-b border-border py-24 lg:py-32">
@@ -653,22 +615,33 @@ function Index() {
       </section>
 
       {/* CTA */}
-      <section id="contact" className="relative overflow-hidden py-28 lg:py-36">
-        <div className="blueprint absolute inset-0 opacity-70" />
-        <div className="absolute inset-x-0 top-0 hairline-y" />
-        <div className="relative mx-auto max-w-[1400px] px-5 text-center md:px-10">
-          <h2 className="mx-auto max-w-3xl text-3xl leading-tight sm:text-5xl lg:text-6xl">
-            Prêt à démarrer votre projet <span className="text-gold">CVC</span> ?
-          </h2>
-          <p className="mx-auto mt-6 max-w-2xl leading-relaxed text-muted-foreground">
-            Contactez-nous pour obtenir un devis personnalisé pour vos travaux de plomberie,
-            chauffage ou VMC en Île-de-France.
-          </p>
-          <a href="#contact" className="btn-gold mt-10">
-            Nous contacter <ArrowUpRight className="h-4 w-4" />
-          </a>
+      <section id="contact" className="px-3 py-6 md:px-5">
+        <div className="dicko-pattern-gold relative isolate overflow-hidden rounded-[2rem] bg-card md:rounded-[2.5rem]">
+          <img
+            src={aboutImg}
+            alt="Équipe DICKO sur chantier en Île-de-France"
+            width={1200}
+            height={1408}
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover object-[60%_30%] opacity-35"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/50" />
+          <div className="relative mx-auto max-w-[1400px] px-6 py-24 md:px-12 lg:py-32">
+            <h2 className="max-w-3xl text-3xl leading-tight sm:text-5xl lg:text-6xl">
+              Parlons de votre chantier avec un{" "}
+              <span className="text-gold">homme de métier</span>
+            </h2>
+            <p className="mt-6 max-w-2xl leading-relaxed text-muted-foreground">
+              Un chef de chantier DICKO vous rappelle, visite le site et chiffre vos travaux de
+              plomberie, chauffage ou VMC en Île-de-France.
+            </p>
+            <a href="#contact" className="btn-gold mt-10">
+              Nous contacter <ArrowUpRight className="h-4 w-4" />
+            </a>
+          </div>
         </div>
       </section>
+
 
       {/* FOOTER */}
       <footer className="border-t border-border py-10">
