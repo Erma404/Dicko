@@ -596,6 +596,6 @@ function Index() {
 
 
 
-    </div>
+    </main>
   );
 }
