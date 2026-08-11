@@ -47,14 +47,14 @@ export function SiteHeader() {
 
   return (
     <div
-      className={`sticky top-0 z-50 px-3 pt-3 transition-transform duration-300 ease-in md:px-5 md:pt-4 ${
+      className={`band-ink sticky top-0 z-50 px-3 pt-3 transition-transform duration-300 ease-in md:px-5 md:pt-4 ${
         footerVisible ? "-translate-y-[130%]" : "translate-y-0"
       }`}
       aria-hidden={footerVisible}
       inert={footerVisible ? true : undefined}
     >
       <header
-        className={`band-ink mx-auto max-w-[1400px] rounded-[1.5rem] px-4 transition-shadow duration-300 md:px-6 ${
+        className={`mx-auto max-w-[1400px] rounded-[1.5rem] px-4 transition-shadow duration-300 md:px-6 ${
           scrolled ? "shadow-[0_22px_50px_-30px_rgba(20,20,25,0.65)]" : ""
         }`}
       >
@@ -95,7 +95,7 @@ export function SiteHeader() {
             <button
               type="button"
               onClick={openQuoteModal}
-              className="btn-gold hidden !px-5 !py-2.5 text-xs sm:inline-flex"
+              className="btn-gold hidden !px-7 !py-3.5 text-sm sm:inline-flex"
             >
               Demande de devis
             </button>

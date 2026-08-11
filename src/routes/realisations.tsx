@@ -146,7 +146,7 @@ function RealisationsPage() {
 
       {/* STATS */}
       <section className="px-3 pt-3 md:px-5">
-        <div className="band-cream rounded-[2rem] px-6 py-12 md:px-12 lg:py-16">
+        <div className="band-cream dicko-watermark-soft relative overflow-hidden rounded-[2rem] px-6 py-12 md:px-12 lg:py-16">
           <div className="mx-auto grid max-w-[1400px] grid-cols-2 gap-y-10 lg:grid-cols-4">
             {stats.map((s) => (
               <div key={s.label} className="px-2 text-center">

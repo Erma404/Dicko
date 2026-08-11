@@ -26,7 +26,7 @@ export function SiteFooter() {
   return (
     <footer id="site-footer" className="px-3 pb-3 md:px-5 md:pb-5">
       <div className="band-ink dicko-watermark relative overflow-hidden rounded-[2rem] px-6 pt-16 md:rounded-[2.5rem] md:px-12">
-        <div className="mx-auto max-w-[1400px]">
+        <div className="@container mx-auto max-w-[1400px]">
           <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
             <div>
               <div className="flex items-center gap-3">
@@ -97,8 +97,8 @@ export function SiteFooter() {
 
           <div
             aria-hidden
-            className="mt-12 font-display leading-[0.8] font-bold tracking-[0.06em] text-foreground/12 select-none"
-            style={{ fontSize: "clamp(4.5rem, 21vw, 19rem)" }}
+            className="mt-12 w-full overflow-hidden font-display leading-[0.8] font-bold tracking-[0.06em] text-foreground/12 select-none"
+            style={{ fontSize: "clamp(3rem, 28cqi, 19rem)", whiteSpace: "nowrap" }}
           >
             DICKO
           </div>

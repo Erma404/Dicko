@@ -401,6 +401,36 @@
   }
 }
 
+/* Même filigrane, en plus discret : pour les blocs fond beige/crème,
+   où la marque doit rester un clin d'œil et non un aplat visible
+   comme sur les blocs encre. */
+@utility dicko-watermark-soft {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    /* Ces blocs beige sont bien plus bas que les blocs encre (souvent
+       de simples bandeaux compacts) : la marque est plafonnée à une
+       taille qui tient toujours dans leur hauteur réelle. */
+    top: 4%;
+    right: 4%;
+    width: min(22%, 160px);
+    aspect-ratio: 1;
+    z-index: -1;
+    background-color: color-mix(in oklab, var(--foreground) 2.5%, transparent);
+
+    -webkit-mask-image: url("/dicko-mark.svg");
+    mask-image: url("/dicko-mark.svg");
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    pointer-events: none;
+  }
+}
+
 /* Contenu d'article de blog (HTML sémantique injecté, sans classes) */
 .article-prose {
   color: var(--foreground);
