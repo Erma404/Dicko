@@ -1,0 +1,1 @@
+var e=`/assets/service-vmc-BWDn0bnw.jpg`;export{e as t};
