@@ -111,9 +111,6 @@ function AProposPage() {
               <Link to="/contact" className="btn-gold">
                 Nous contacter <ArrowUpRight className="h-4 w-4" />
               </Link>
-              <span className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
-                25 rue Archereau, 75019 Paris · SIRET : 918 120 783 00017
-              </span>
             </div>
           </div>
         </div>
@@ -121,7 +118,7 @@ function AProposPage() {
 
       {/* STATS */}
       <section className="px-3 pt-3 md:px-5">
-        <div className="band-cream dicko-watermark-soft relative overflow-hidden rounded-[2rem] px-6 py-12 md:px-12 lg:py-16">
+        <div className="band-cream rounded-[2rem] px-6 py-12 md:px-12 lg:py-16">
           <div className="mx-auto grid max-w-[1400px] grid-cols-2 gap-y-10 lg:grid-cols-4">
             {stats.map((s) => {
               const numeric = s.value.replace(/[^0-9]/g, "");
