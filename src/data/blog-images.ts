@@ -1,3 +1,4 @@
+import purgerRadiateurs from "@/assets/blog/purger-radiateurs.jpg";
 import chaudierePanne from "@/assets/blog/chaudiere-panne.jpg";
 import chauffageCollectifCopro from "@/assets/blog/chauffage-collectif-copro.jpg";
 import chauffagisteOuPlombier from "@/assets/blog/chauffagiste-ou-plombier.jpg";
@@ -12,6 +13,7 @@ import vmcImmeuble from "@/assets/blog/vmc-immeuble.jpg";
 import wcBouche from "@/assets/blog/wc-bouche.jpg";
 
 export const blogImages: Record<string, string> = {
+  "purger-radiateurs-guide-pas-a-pas": purgerRadiateurs,
   "chaudiere-ne-chauffe-plus-causes-paris": chaudierePanne,
   "chauffage-collectif-copropriete-obligations-syndic": chauffageCollectifCopro,
   "chauffagiste-ou-plombier-qui-appeler": chauffagisteOuPlombier,

@@ -440,6 +440,11 @@
   color: var(--foreground);
   font-weight: 600;
 }
+.article-prose a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 
 /* Pages légales (mentions, confidentialité) */
 .legal-prose {
